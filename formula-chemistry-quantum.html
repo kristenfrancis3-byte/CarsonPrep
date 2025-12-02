@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chemistry — Quantum Numbers</title>
+  <style>
+    .hyf-chip{display:inline-block;padding:0.25rem 0.7rem;border-radius:999px;background:#e0ecff;color:#1e3a8a;font-weight:600;text-decoration:none}
+    body{font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;margin:1rem;background:#f3f4f6;color:#111827}
+    .back{display:inline-block;margin-bottom:1rem;color:#0f766e;text-decoration:none;font-weight:600}
+    .card{background:#fff;padding:1rem;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+    code{background:#f3f4f6;padding:0.15rem 0.3rem;border-radius:4px}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back" href="formula-chemistry.html">← Back</a>
+    <h1>8. Quantum Numbers</h1>
+  </header>
+
+  <div class="card">
+    <h3>Overview</h3>
+    <p>Four quantum numbers: <code>n</code> = principal level, <code>l</code> = subshell (0 = s, 1 = p, 2 = d, 3 = f), <code>m<sub>l</sub></code> = orbital orientation, <code>m<sub>s</sub></code> = spin (+½ or −½).</p>
+    <p>Maximum electrons per level = <code>2n<sup>2</sup></code>.</p>
+    <p><strong>Pattern:</strong> Level → Shape → Position → Spin (memory hook: “L‑S‑P‑S”).</p>
+
+    <h2>Practice Questions</h2>
+    <ol class="qa-list">
+      <li>
+        <p class="q">1. Which quantum number identifies the energy level?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans1">Show answer</button>
+        <div id="ans1" class="answer" hidden>n</div>
+      </li>
+      <li>
+        <p class="q">2. What values can l take for the d-subshell?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans2">Show answer</button>
+        <div id="ans2" class="answer" hidden>l = 2</div>
+      </li>
+      <li>
+        <p class="q">3. How many electrons can a level hold according to the 2n² rule when n = 3?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans3">Show answer</button>
+        <div id="ans3" class="answer" hidden>18</div>
+      </li>
+      <li>
+        <p class="q">4. What quantum number represents electron spin?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans4">Show answer</button>
+        <div id="ans4" class="answer" hidden>m_s</div>
+      </li>
+      <li>
+        <p class="q">5. What is the name of the orbital orientation quantum number?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans5">Show answer</button>
+        <div id="ans5" class="answer" hidden>m_l</div>
+      </li>
+    </ol>
+
+    <style>
+      .qa-list { padding-left: 1rem; }
+      .q { margin: 0.35rem 0; font-weight:600; }
+      .toggle-answer { margin-top: 0.25rem; padding:0.35rem 0.5rem; border-radius:6px; border:1px solid #d1d5db; background:#fff; cursor:pointer; }
+      .answer { margin-top:0.5rem; padding:0.5rem; background:#f9fafb; border-left:3px solid #0f766e; border-radius:6px; }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('.toggle-answer').forEach(function(btn){
+          btn.addEventListener('click', function(){
+            var id = btn.getAttribute('aria-controls');
+            var ans = document.getElementById(id);
+            var visible = !ans.hasAttribute('hidden');
+            if(visible){ ans.setAttribute('hidden',''); btn.textContent = 'Show answer'; btn.setAttribute('aria-expanded','false'); }
+            else { ans.removeAttribute('hidden'); btn.textContent = 'Hide answer'; btn.setAttribute('aria-expanded','true'); }
+          });
+        });
+      });
+    </script>
+
+    <h3>Early-Buzz Patterns</h3>
+    <ul class="buzz-list">
+      <li><strong>"This quantum number specifies energy level…"</strong> → n</li>
+      <li><strong>"This quantum number describes subshell shape…"</strong> → l</li>
+      <li><strong>"This rule limits electrons to 2n²…"</strong> → Maximum electron cap</li>
+      <li><strong>"This quantum number takes values of ±½…"</strong> → Spin quantum number</li>
+      <li><strong>"This quantum number specifies orbital orientation…"</strong> → m_l</li>
+    </ul>
+    <style>
+      .buzz-list { margin-top: 0.75rem; padding-left: 1rem; }
+      .buzz-list li { margin-bottom: 0.4rem; }
+    </style>
+  </div>
+</body>
+</html>

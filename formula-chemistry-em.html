@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chemistry — Electromagnetic Energy</title>
+  <style>
+    .hyf-chip{display:inline-block;padding:0.25rem 0.7rem;border-radius:999px;background:#e0ecff;color:#1e3a8a;font-weight:600;text-decoration:none}
+    body{font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;margin:1rem;background:#f3f4f6;color:#111827}
+    .back{display:inline-block;margin-bottom:1rem;color:#0f766e;text-decoration:none;font-weight:600}
+    .card{background:#fff;padding:1rem;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+    code{background:#f3f4f6;padding:0.15rem 0.3rem;border-radius:4px}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back" href="formula-chemistry.html">← Back</a>
+    <h1>3. Electromagnetic Energy Relationships</h1>
+  </header>
+
+  <div class="card">
+    <h3>Overview</h3>
+    <p>(KAAC LOVES wavelength–frequency–energy triangles.)</p>
+    <p><code>c = λ ν</code> where <code>c = 3.00 × 10<sup>8</sup> m/s</code>, <code>λ</code> = wavelength, <code>ν</code> = frequency.</p>
+    <p><code>E = h ν</code> and equivalently <code>E = h c / λ</code>, where <code>h = 6.626 × 10<sup>−34</sup> J·s</code>.</p>
+    <p><strong>Pattern:</strong> Shorter wavelength → higher frequency → higher energy.</p>
+
+    <h2>Practice Questions</h2>
+    <ol class="qa-list">
+      <li>
+        <p class="q">1. What equation relates wavelength and frequency for electromagnetic waves?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans1">Show answer</button>
+        <div id="ans1" class="answer" hidden>c = λν</div>
+      </li>
+      <li>
+        <p class="q">2. If wavelength decreases, what happens to photon energy?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans2">Show answer</button>
+        <div id="ans2" class="answer" hidden>It increases</div>
+      </li>
+      <li>
+        <p class="q">3. What constant has the value 6.626 × 10⁻³⁴ J·s?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans3">Show answer</button>
+        <div id="ans3" class="answer" hidden>Planck’s constant</div>
+      </li>
+      <li>
+        <p class="q">4. What equation gives the energy of a photon from frequency?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans4">Show answer</button>
+        <div id="ans4" class="answer" hidden>E = hν</div>
+      </li>
+      <li>
+        <p class="q">5. Which region of the electromagnetic spectrum has the highest energy?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans5">Show answer</button>
+        <div id="ans5" class="answer" hidden>Gamma rays</div>
+      </li>
+    </ol>
+
+    <style>
+      .qa-list { padding-left: 1rem; }
+      .q { margin: 0.35rem 0; font-weight:600; }
+      .toggle-answer { margin-top: 0.25rem; padding:0.35rem 0.5rem; border-radius:6px; border:1px solid #d1d5db; background:#fff; cursor:pointer; }
+      .answer { margin-top:0.5rem; padding:0.5rem; background:#f9fafb; border-left:3px solid #0f766e; border-radius:6px; }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('.toggle-answer').forEach(function(btn){
+          btn.addEventListener('click', function(){
+            var id = btn.getAttribute('aria-controls');
+            var ans = document.getElementById(id);
+            var visible = !ans.hasAttribute('hidden');
+            if(visible){ ans.setAttribute('hidden',''); btn.textContent = 'Show answer'; btn.setAttribute('aria-expanded','false'); }
+            else { ans.removeAttribute('hidden'); btn.textContent = 'Hide answer'; btn.setAttribute('aria-expanded','true'); }
+          });
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>
+<!-- ⭐ SECTION 3 — Electromagnetic Energy -->
+<div class="card buzzer-card">
+  <h3>Electromagnetic Energy – Buzz-in-First-Three-Words</h3>
+  <ul class="term-list">
+    <li><span class="clue">“This equation relates…”</span> → <span class="answer"><code>c = λν</code></span></li>
+    <li><span class="clue">“Energy of photons…”</span> → <span class="answer"><code>E = hν</code></span></li>
+    <li><span class="clue">“Shorter wavelengths have…”</span> → <span class="answer">Higher energy</span></li>
+    <li><span class="clue">“This constant equals…”</span> → <span class="answer">Planck’s constant</span></li>
+    <li><span class="clue">“Gamma rays possess…”</span> → <span class="answer">Highest energy</span></li>
+  </ul>
+</div>

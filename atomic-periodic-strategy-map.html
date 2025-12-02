@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Preview: Atomic & Periodic Strategy Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --bg-card: #ffffff;
+      --accent: #3b82f6;
+      --accent-soft: #2563eb;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .top-nav {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 60px;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links li a:hover {
+      color: var(--accent);
+    }
+
+    .app-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    header.page-header {
+      margin-bottom: 1.75rem;
+    }
+
+    header.page-header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    /* ───── STRATEGY CONTAINER ───── */
+    .strategy-container {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.4;
+      padding: 0;
+    }
+
+    .strategy-section {
+      margin-bottom: 30px;
+      border-left: 5px solid var(--accent);
+      padding-left: 15px;
+    }
+
+    .strategy-title {
+      font-size: 1.6em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .box {
+      border: 2px solid var(--accent);
+      padding: 12px;
+      border-radius: 8px;
+      margin: 12px 0;
+      background: #f7fbff;
+      color: var(--text-main);
+    }
+
+    .flow-arrow {
+      text-align: center;
+      font-size: 1.8em;
+      color: var(--accent);
+      margin: 10px 0;
+    }
+
+    .subheading {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 15px;
+      color: var(--text-main);
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Shared Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-brand">CarsonPrep</div>
+      <ul class="nav-links">
+        <li><a href="carson_study_portal.html">Home</a></li>
+        <li><a href="chemistry-hub.html">Chemistry Hub</a></li>
+        <li><a href="physics-hub.html">Physics Hub</a></li>
+        <li><a href="earthspace-hub.html">Earth &amp; Space</a></li>
+        <li><a href="biology-hub.html">Biology</a></li>
+        <li><a href="buzzer-training.html">Buzzer Training</a></li>
+        <li><a href="formula-library.html">Formula Sheets</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <a href="chem-atomic-periodic.html" class="back-button" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; margin-bottom: 1rem; color: var(--accent); text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: gap 0.25s ease, color 0.25s ease;">← Back to Atomic Structure</a>
+
+    <header class="page-header">
+      <h1>Preview: Strategy Map</h1>
+      <p>This is how the HTML will look with your current light theme styling.</p>
+      <div class="stats-row" style="margin-top:0.8rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
+        <span class="stat-pill">Quick Reference · Strategy Map</span>
+      </div>
+    </header>
+
+    <div class="strategy-container">
+      <div class="strategy-section">
+        <div class="strategy-title">Atomic &amp; Periodic Strategy Map</div>
+
+        <div class="subheading">1. Identify Question Type (First 3 Words)</div>
+        <div class="box">
+          <strong>"This particle…"</strong> → Subatomic<br>
+          <strong>"This rule…"</strong> → Electron Configuration<br>
+          <strong>"This trend…"</strong> → Periodic Trends<br>
+          <strong>"This equation…"</strong> → EM/Nuclear Equations<br>
+          <strong>"As ___ increases…"</strong> → Z<sub>eff</sub> &amp; Shielding
+        </div>
+
+        <div class="flow-arrow">▼</div>
+
+        <div class="subheading">2. Snap to Category Instantly</div>
+        <div class="box">
+          The first recognizable keyword locks the category.<br><br>
+          <strong>Examples:</strong><br>
+          - "subatomic" → Proton/Neutron/Electron<br>
+          - "rule states" → Aufbau / Hund / Pauli<br>
+          - "weighted average" → Atomic Mass<br>
+          - "minimum frequency" → Threshold Frequency
+        </div>
+
+        <div class="flow-arrow">▼</div>
+
+        <div class="subheading">3. Trigger Mapping (Instant Answer)</div>
+        <div class="box">
+          <strong>Opposite spins</strong> → Pauli<br>
+          <strong>Singly before pairing</strong> → Hund<br>
+          <strong>Lowest energy orbitals</strong> → Aufbau<br>
+          <strong>Positive ion smaller</strong> → Cation<br>
+          <strong>Negative ion larger</strong> → Anion<br>
+          <strong>Weighted average</strong> → Atomic Mass<br>
+          <strong>Relates wavelength/frequency</strong> → c = λν
+        </div>
+
+        <div class="flow-arrow">▼</div>
+
+        <div class="subheading">4. Predict the Ending (Before It's Said)</div>
+        <div class="box">
+          KAAC clues are short. Once the pattern appears, the rest is predictable.<br><br>
+          <strong>Examples:</strong><br>
+          - "This rule states that electrons…" → Aufbau<br>
+          - "This trend increases down…" → Atomic Radius<br>
+          - "This effect requires threshold…" → Photoelectric Effect<br>
+          - "As Z<sub>eff</sub> increases…" → Radius decreases
+        </div>
+
+        <div class="flow-arrow">▼</div>
+
+        <div class="subheading">5. Auto-Answer by Pattern Recognition</div>
+        <div class="box">
+          Carson should confidently buzz before the final clue.<br><br>
+          <strong>State-Champ Reflexes:</strong><br>
+          - "same electrons…" → Isoelectronic<br>
+          - "mass difference…" → Mass Defect<br>
+          - "minimum frequency…" → Threshold Frequency<br>
+          - "energy required to remove…" → Ionization Energy
+        </div>
+
+        <div class="flow-arrow">▼</div>
+
+        <div class="subheading">6. High-ROI Knowledge Clusters</div>
+        <div class="box">
+          These generate ~70% of KAAC questions in this category:<br><br>
+          ✔ Periodic Trend Directions<br>
+          ✔ Aufbau / Hund / Pauli<br>
+          ✔ c = λν and E = hν<br>
+          ✔ Cation vs Anion size rules<br>
+          ✔ Z<sub>eff</sub> &amp; Shielding logic
+        </div>
+
+      </div>
+    </div>
+
+    <footer>
+      Preview File · CarsonPrep
+    </footer>
+  </div>
+</body>
+</html>

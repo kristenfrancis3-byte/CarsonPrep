@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>High-Value Patterns KAAC Writers Repeat – CarsonPrep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --bg-card: #ffffff;
+      --accent: #3b82f6;
+      --accent-soft: #2563eb;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    /* ───── TOP NAV BAR ───── */
+    .top-nav {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 60px;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links li a:hover {
+      color: var(--accent);
+    }
+
+    /* ───── PAGE LAYOUT ───── */
+    .app-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: gap 0.25s ease, color 0.25s ease;
+    }
+
+    .back-button:hover {
+      gap: 0.75rem;
+      color: var(--accent-soft);
+    }
+
+    .patterns-section {
+      font-family: Arial, sans-serif;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .ao-title {
+      font-size: 1.8em;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .ao-intro {
+      color: #444;
+      margin-bottom: 14px;
+      font-size: 0.98em;
+    }
+
+    .ao-section-heading {
+      font-size: 1.3em;
+      font-weight: 800;
+      margin: 18px 0 8px 0;
+    }
+
+    .ao-subheading {
+      font-size: 1.05em;
+      font-weight: 800;
+      margin: 12px 0 6px 0;
+    }
+
+    .ao-text {
+      font-size: 0.98em;
+      margin: 6px 0;
+      color: var(--text-muted);
+    }
+
+    .ao-list {
+      margin: 6px 0 10px 22px;
+      font-size: 0.96em;
+    }
+
+    .ao-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Back to top */
+    #back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 10px;
+      display: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      z-index: 9999;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    #back-to-top.show {
+      display: block;
+    }
+
+    :focus-visible {
+      outline: 3px solid #cfe7ff;
+      outline-offset: 2px;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Shared Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-brand">CarsonPrep</div>
+      <ul class="nav-links">
+        <li><a href="carson_study_portal.html">Home</a></li>
+        <li><a href="chemistry-hub.html">Chemistry Hub</a></li>
+        <li><a href="physics-hub.html">Physics Hub</a></li>
+        <li><a href="earthspace-hub.html">Earth &amp; Space</a></li>
+        <li><a href="biology-hub.html">Biology</a></li>
+        <li><a href="buzzer-training.html">Buzzer Training</a></li>
+        <li><a href="formula-library.html">Formula Sheets</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <a href="chem-atomic-periodic.html" class="back-button">← Back to Atomic Structure &amp; Periodic Trends</a>
+
+    <!-- Page Header with Pills -->
+    <header class="page-header">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+        <div class="pill">Core 01 · High Frequency</div>
+        <a href="atomic-periodic-strategy-map.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Strategy Map</a>
+        <a href="four-kaac-archetypes.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Question Archetypes</a>
+        <a href="buzzing-logic-model.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Buzzing Logic Model</a>
+        <a href="high-value-patterns.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ High-Value Patterns</a>
+        <a href="high-roi-training.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ High-ROI</a>
+        <a href="buzz-strategy.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Buzz Strategy</a>
+        <a href="ultra-quick-decision-tree.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Quick Decision Tree</a>
+      </div>
+    </header>
+
+    <section class="patterns-section" role="main">
+      <h1 class="ao-title">High-Value Patterns KAAC Writers Repeat</h1>
+      <p class="ao-intro">
+        These are extremely common across years.
+      </p>
+
+      <!-- Pattern 1 -->
+      <h2 id="pattern-1" class="ao-subheading">Pattern 1: "This rule…"</h2>
+      <p class="ao-text">
+        Answer is always one of three:
+      </p>
+      <ul class="ao-list">
+        <li>Aufbau</li>
+        <li>Hund</li>
+        <li>Pauli</li>
+      </ul>
+      <p class="ao-text">Buzz after the first 3–5 words.</p>
+
+      <!-- Pattern 2 -->
+      <h2 id="pattern-2" class="ao-subheading">Pattern 2: "Weighted average…"</h2>
+      <p class="ao-text">
+        This always means atomic mass. Buzz instantly.
+      </p>
+
+      <!-- Pattern 3 -->
+      <h2 id="pattern-3" class="ao-subheading">Pattern 3: "Increases down, decreases across…"</h2>
+      <p class="ao-text">
+        Answer = atomic radius, unless the clue mentions metallic character.
+      </p>
+
+      <!-- Pattern 4 -->
+      <h2 id="pattern-4" class="ao-subheading">Pattern 4: "Energy required to remove…"</h2>
+      <p class="ao-text">
+        Answer = ionization energy.
+      </p>
+
+      <!-- Pattern 5 -->
+      <h2 id="pattern-5" class="ao-subheading">Pattern 5: "As wavelength decreases…"</h2>
+      <p class="ao-text">
+        Answer = energy increases or frequency increases.
+      </p>
+
+      <!-- Pattern 6 -->
+      <h2 id="pattern-6" class="ao-subheading">Pattern 6: "Positive ions have…"</h2>
+      <p class="ao-text">
+        Answer = smaller radius (cations shrink).
+      </p>
+
+      <!-- Pattern 7 -->
+      <h2 id="pattern-7" class="ao-subheading">Pattern 7: "Same electrons but different sizes…"</h2>
+      <p class="ao-text">
+        Answer = isoelectronic series (then rank by proton count).
+      </p>
+
+      <!-- Pattern 8 -->
+      <h2 id="pattern-8" class="ao-subheading">Pattern 8: "minimum frequency required…"</h2>
+      <p class="ao-text">
+        Answer = threshold frequency.
+      </p>
+
+      <!-- Pattern 9 -->
+      <h2 id="pattern-9" class="ao-subheading">Pattern 9: "mass difference between predicted…"</h2>
+      <p class="ao-text">
+        Answer = mass defect.
+      </p>
+
+      <!-- Pattern 10 -->
+      <h2 id="pattern-10" class="ao-subheading">Pattern 10: "most stable nuclei…"</h2>
+      <p class="ao-text">
+        Answer = iron.
+      </p>
+    </section>
+
+    <footer>
+      High-Value Patterns · CarsonPrep KAAC Science Training
+    </footer>
+  </div>
+
+  <a id="back-to-top" href="#top" aria-label="Back to top">↑</a>
+  <script>
+    // Back to top visibility toggle
+    const b = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 300) b.classList.add('show');
+      else b.classList.remove('show');
+    });
+  </script>
+</body>
+</html>

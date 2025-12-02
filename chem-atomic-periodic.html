@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Atomic Structure & Periodic Trends – CarsonPrep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --bg-card: #ffffff;
+      --accent: #3b82f6;
+      --accent-soft: #2563eb;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    /* ───── TOP NAV BAR ───── */
+    .top-nav {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 60px;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links li a:hover {
+      color: var(--accent);
+    }
+
+    /* ───── PAGE LAYOUT ───── */
+    .app-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    header.page-header {
+      margin-bottom: 1.75rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.15rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+    }
+
+    header.page-header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    header.page-header p {
+      color: var(--text-muted);
+      max-width: 640px;
+      font-size: 0.95rem;
+    }
+
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+
+    .stat-pill {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 1rem;
+      border: 2px solid var(--accent);
+      padding: 1.25rem 1.25rem 1.4rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(59, 130, 246, 0.15);
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0.35rem;
+      color: var(--text-main);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .card ul {
+      margin-left: 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .card li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* ───── BACK BUTTON ───── */
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: gap 0.25s ease, color 0.25s ease;
+    }
+
+    .back-button:hover {
+      gap: 0.75rem;
+      color: var(--accent-soft);
+    }
+
+    /* ───── FORMULA BOX ───── */
+    .formula-box {
+      background: #f0f4ff;
+      border-left: 4px solid var(--accent);
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      margin: 0.75rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    /* ───── KEY TERMS ───── */
+    .key-terms {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    @media (min-width: 720px) {
+      .key-terms {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .term-card {
+      background: #f9fafb;
+      border-left: 3px solid var(--accent);
+      padding: 0.75rem;
+      border-radius: 0.4rem;
+    }
+
+    .term-card strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .term-card span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Shared Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-brand">CarsonPrep</div>
+      <ul class="nav-links">
+        <li><a href="carson_study_portal.html">Home</a></li>
+        <li><a href="chemistry-hub.html">Chemistry Hub</a></li>
+        <li><a href="physics-hub.html">Physics Hub</a></li>
+        <li><a href="earthspace-hub.html">Earth &amp; Space</a></li>
+        <li><a href="biology-hub.html">Biology</a></li>
+        <li><a href="buzzer-training.html">Buzzer Training</a></li>
+        <li><a href="formula-library.html">Formula Sheets</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <a href="chemistry-hub.html" class="back-button">← Back to Chemistry Hub</a>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+        <div class="pill">Core 01 · High Frequency</div>
+        <a href="atomic-periodic-strategy-map.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Strategy Map</a>
+        <a href="four-kaac-archetypes.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Question Archetypes</a>
+        <a href="buzzing-logic-model.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Buzzing Logic Model</a>
+        <a href="high-value-patterns.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ High-Value Patterns</a>
+        <a href="high-roi-training.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ High-ROI</a>
+        <a href="buzz-strategy.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Buzz Strategy</a>
+        <a href="ultra-quick-decision-tree.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Quick Decision Tree</a>
+      </div>
+      <h1>Atomic Structure &amp; Periodic Trends</h1>
+      <p>
+        Master the fundamentals of atomic structure, electron configurations, and periodic trends. These concepts form the foundation for understanding bonding, reactivity, and virtually every other topic in chemistry.
+      </p>
+      <div class="stats-row">
+        <a href="kaac-predictable-templates.html" class="stat-pill" style="text-decoration: none; cursor: pointer; transition: background 0.25s ease, color 0.25s ease;" onmouseover="this.style.background='#e5e7eb'; this.style.color='var(--text-main)'" onmouseout="this.style.background='#f3f4f6'; this.style.color='var(--text-muted)'">KAAC Predictable Templates</a>
+        <span class="stat-pill">Start here for Core Chemistry</span>
+        <span class="stat-pill">Connects to bonding and reactivity</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- What Carson Must Know -->
+      <section class="card">
+        <div class="section-title">What Carson Must Know</div>
+        <h2>Core Concepts</h2>
+
+        <h3>Subatomic Particles</h3>
+        <ul>
+          <li><strong>Protons:</strong> Positively charged, determine atomic number (Z), mass ≈ 1 amu</li>
+          <li><strong>Neutrons:</strong> Neutral, determine isotope, mass ≈ 1 amu</li>
+          <li><strong>Electrons:</strong> Negatively charged, occupy orbitals, mass ≈ 1/1836 amu (negligible)</li>
+        </ul>
+
+        <h3>Atomic Number &amp; Mass Number</h3>
+        <ul>
+          <li><strong>Atomic Number (Z):</strong> Number of protons; defines the element</li>
+          <li><strong>Mass Number (A):</strong> Protons + Neutrons</li>
+          <li><strong>Isotopes:</strong> Same element, different neutrons, different mass numbers</li>
+        </ul>
+
+        <h3>Electron Configuration</h3>
+        <p><strong>Three Rules Govern Filling:</strong></p>
+        <ul>
+          <li><strong>Aufbau Principle:</strong> Fill lowest-energy orbitals first (1s, 2s, 2p, 3s, 3p, 4s, 3d...)</li>
+          <li><strong>Hund's Rule:</strong> Electrons singly occupy orbitals before pairing (maximize unpaired electrons)</li>
+          <li><strong>Pauli Exclusion Principle:</strong> No two electrons have identical quantum numbers (opposite spins in same orbital)</li>
+        </ul>
+
+        <h3>Periodic Trends (Across a Period; Down a Group)</h3>
+        <div class="key-terms">
+          <div class="term-card">
+            <strong>Atomic Radius</strong>
+            <span>Decreases left to right | Increases down</span>
+          </div>
+          <div class="term-card">
+            <strong>Ionization Energy</strong>
+            <span>Increases left to right | Decreases down</span>
+          </div>
+          <div class="term-card">
+            <strong>Electron Affinity</strong>
+            <span>Increases left to right | Decreases down</span>
+          </div>
+          <div class="term-card">
+            <strong>Electronegativity</strong>
+            <span>Increases left to right | Decreases down</span>
+          </div>
+        </div>
+
+        <h3>Ion Size Rules</h3>
+        <ul>
+          <li><strong>Cations are smaller</strong> than their neutral atoms (electrons lost, less shielding)</li>
+          <li><strong>Anions are larger</strong> than their neutral atoms (electrons gained, more repulsion)</li>
+          <li>Within isoelectronic series: higher charge → smaller ion</li>
+        </ul>
+      </section>
+
+      <!-- Key Formulas & Relationships -->
+      <section class="card">
+        <div class="section-title">Key Formulas</div>
+        <h2>Equations You Need</h2>
+
+        <h3>Electromagnetic Radiation</h3>
+        <div class="formula-box">c = λν</div>
+        <p><strong>Where:</strong> c = speed of light (3 × 10⁸ m/s), λ = wavelength (m), ν = frequency (Hz)</p>
+
+        <h3>Photon Energy</h3>
+        <div class="formula-box">E = hν = hc/λ</div>
+        <p><strong>Where:</strong> h = Planck's constant (6.626 × 10⁻³⁴ J·s)</p>
+
+        <h3>Effective Nuclear Charge</h3>
+        <div class="formula-box">Z<sub>eff</sub> = Z – S</div>
+        <p><strong>Where:</strong> Z = atomic number, S = shielding constant (approximate electrons between nucleus and outer electron)</p>
+      </section>
+
+      <!-- Buzzwords & Triggers -->
+      <section class="card">
+        <div class="section-title">Buzzwords</div>
+        <h2>Pattern Recognition Clues</h2>
+
+        <h3>Question Type Identifiers (First Few Words)</h3>
+        <ul>
+          <li><strong>"This particle…"</strong> → Subatomic particle question (proton, neutron, electron)</li>
+          <li><strong>"This rule states…"</strong> → Electron configuration rule (Aufbau, Hund, Pauli)</li>
+          <li><strong>"This trend…"</strong> → Periodic trend (atomic radius, IE, EN, EA)</li>
+          <li><strong>"As atomic number increases…"</strong> → Trend analysis</li>
+          <li><strong>"Weighted average…"</strong> → Atomic mass calculation</li>
+        </ul>
+
+        <h3>Instant Answer Triggers</h3>
+        <ul>
+          <li><strong>Opposite spins</strong> → Pauli Exclusion Principle</li>
+          <li><strong>Singly before pairing</strong> → Hund's Rule</li>
+          <li><strong>Lowest energy first</strong> → Aufbau Principle</li>
+          <li><strong>Positive ion smaller than atom</strong> → Cation formation</li>
+          <li><strong>Negative ion larger than atom</strong> → Anion formation</li>
+          <li><strong>Same number of electrons</strong> → Isoelectronic</li>
+          <li><strong>Minimum frequency for electron ejection</strong> → Threshold Frequency / Photoelectric Effect</li>
+        </ul>
+      </section>
+
+      <!-- Common Mistakes -->
+      <section class="card">
+        <div class="section-title">Watch Out</div>
+        <h2>Common Mistakes</h2>
+
+        <ul>
+          <li><strong>Confusing Z with A:</strong> Atomic number = protons (defines element). Mass number = protons + neutrons.</li>
+          <li><strong>Wrong trend direction:</strong> Atomic radius <em>decreases</em> left to right. Ionization energy <em>increases</em> left to right.</li>
+          <li><strong>Forgetting shielding:</strong> Inner electrons shield outer electrons from full nuclear charge → Z<sub>eff</sub> &lt; Z</li>
+          <li><strong>Ion size backward:</strong> Cations are <em>smaller</em>; anions are <em>larger</em>.</li>
+          <li><strong>Orbital confusion:</strong> Aufbau ≠ Hund's ≠ Pauli. Know what each governs.</li>
+        </ul>
+      </section>
+
+      <!-- Quick Drills -->
+      <section class="card">
+        <div class="section-title">Practice Questions</div>
+        <h2>Quick Drills</h2>
+
+        <h3>Question 1: Electron Configuration</h3>
+        <p><strong>Which of the following violates Hund's Rule?</strong></p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">A) ↑↓ | ↑ | — | —</p>
+        <p style="font-size: 0.9rem;">B) ↑ | ↑ | ↑ | —</p>
+        <p style="font-size: 0.9rem;">C) ↑↓ | ↑↓ | — | —</p>
+        <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">D) ↑ | — | — | —</p>
+        <p style="color: var(--accent); font-weight: 600;">Answer: C (electrons paired before filling all orbitals)</p>
+
+        <h3 style="margin-top: 1rem;">Question 2: Periodic Trends</h3>
+        <p><strong>Rank by atomic radius (largest to smallest): O, S, Se, F</strong></p>
+        <p style="color: var(--accent); font-weight: 600; margin-top: 0.5rem;">Answer: Se > S > O > F (increases down group, decreases across period)</p>
+
+        <h3 style="margin-top: 1rem;">Question 3: Isoelectronic Series</h3>
+        <p><strong>Which is smallest: N³⁻, O²⁻, or F⁻?</strong></p>
+        <p style="color: var(--accent); font-weight: 600; margin-top: 0.5rem;">Answer: F⁻ (all have 10 electrons; higher charge = smaller ion; F has highest nuclear charge)</p>
+      </section>
+    </main>
+
+    <footer>
+      Atomic Structure &amp; Periodic Trends · CarsonPrep KAAC Science Training
+    </footer>
+  </div>
+</body>
+</html>

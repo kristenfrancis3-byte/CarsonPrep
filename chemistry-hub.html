@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chemistry Hub – CarsonPrep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --bg-card: #ffffff;
+      --accent: #3b82f6;
+      --accent-soft: #2563eb;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    /* ───── TOP NAV BAR ───── */
+    .top-nav {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 60px;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links li a:hover {
+      color: var(--accent);
+    }
+
+    /* ───── PAGE LAYOUT ───── */
+    .app-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    header.page-header {
+      margin-bottom: 1.75rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.15rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+    }
+
+    header.page-header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+    }
+
+    header.page-header p {
+      color: var(--text-muted);
+      max-width: 640px;
+      font-size: 0.95rem;
+    }
+
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+
+    .stat-pill {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      background: #f3f4f6;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 1rem;
+      border: 2px solid var(--accent);
+      padding: 1.25rem 1.25rem 1.4rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(59, 130, 246, 0.15);
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ───── QUICK ACTION BUTTONS ───── */
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .primary-button,
+    .ghost-button {
+      display: inline-block;
+      padding: 0.7rem 1.3rem;
+      border-radius: 0.6rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+
+    .primary-button {
+      background: var(--accent);
+      color: white;
+      border: 1px solid var(--accent);
+    }
+
+    .primary-button:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .ghost-button {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .ghost-button:hover {
+      border-color: var(--accent-soft);
+      color: var(--accent-soft);
+      background: rgba(59, 130, 246, 0.05);
+      transform: translateY(-2px);
+    }
+
+    /* ───── TOPIC GRID ───── */
+    .topic-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    @media (min-width: 720px) {
+      .topic-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .topic-card {
+      background: var(--bg-card);
+      border-radius: 0.9rem;
+      border: 2px solid var(--border-subtle);
+      padding: 0.9rem 0.9rem 1rem;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .topic-card span.topic-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
+    .topic-card h3 {
+      font-size: 1.02rem;
+      color: var(--text-main);
+    }
+
+    .topic-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .topic-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.3rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .topic-meta span.badge {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.75rem;
+    }
+
+    .topic-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.25);
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Shared Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-brand">CarsonPrep</div>
+      <ul class="nav-links">
+        <li><a href="carson_study_portal.html">Home</a></li>
+        <li><a href="chemistry-hub.html">Chemistry Hub</a></li>
+        <li><a href="physics-hub.html">Physics Hub</a></li>
+        <li><a href="earthspace-hub.html">Earth &amp; Space</a></li>
+        <li><a href="biology-hub.html">Biology</a></li>
+        <li><a href="buzzer-training.html">Buzzer Training</a></li>
+        <li><a href="formula-library.html">Formula Sheets</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="pill">Chemistry Hub · Highest Priority</div>
+      <h1>Chemistry Hub</h1>
+      <p>
+        Chemistry makes up roughly 40% of KAAC Science questions. This hub is Carson's command center for
+        core topics, formulas, buzzwords, and drills that convert directly into fast points.
+      </p>
+      <div class="stats-row">
+        <span class="stat-pill">~40% of all KAAC Science questions</span>
+        <span class="stat-pill">High-yield: Atomic, Bonding, Stoichiometry, Gas Laws</span>
+        <span class="stat-pill">Built for pattern recognition &amp; buzzer speed</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- Quick Actions -->
+      <section class="card">
+        <div class="section-title">Start Here</div>
+        <h2>High-Yield Chemistry Tools</h2>
+        <p>
+          These are the three tools Carson will use the most. They can live on their own pages&mdash;this hub
+          simply routes him there quickly.
+        </p>
+        <div class="quick-actions">
+          <a href="chemistry-formulas.html" class="primary-button">Chemistry Formula Library</a>
+          <a href="chemistry-buzzwords.html" class="ghost-button">Chemistry Buzzwords &amp; Triggers</a>
+          <a href="chemistry-drills.html" class="ghost-button">Drills, Flashcards &amp; Mini-Tests</a>
+        </div>
+      </section>
+
+      <!-- Topic Grid -->
+      <section class="card">
+        <div class="section-title">Core Topic Map</div>
+        <h2>Chemistry Topic Dashboard</h2>
+        <p>
+          Each tile links to a focused subpage. Every subpage can include: "What Carson Must Know", formulas,
+          buzzwords, drills, and a quick mini-quiz.
+        </p>
+
+        <div class="topic-grid">
+          <!-- 1. Atomic & Periodic -->
+          <a href="chem-atomic-periodic.html" class="topic-card">
+            <span class="topic-label">Core 01</span>
+            <h3>Atomic Structure &amp; Periodic Trends</h3>
+            <p>
+              Protons, neutrons, electrons, isotopes, electron configurations, and periodic trend logic.
+            </p>
+            <div class="topic-meta">
+              <span>High frequency</span>
+              <span class="badge">Start here</span>
+            </div>
+          </a>
+
+          <!-- 2. Bonding & Geometry -->
+          <a href="chem-bonding-geometry.html" class="topic-card">
+            <span class="topic-label">Core 02</span>
+            <h3>Bonding, Molecular Geometry &amp; IMFs</h3>
+            <p>
+              Ionic vs covalent, metallic bonding, VSEPR shapes, polarity, and intermolecular forces.
+            </p>
+            <div class="topic-meta">
+              <span>Very high yield</span>
+              <span class="badge">Buzz-heavy</span>
+            </div>
+          </a>
+
+          <!-- 3. Stoichiometry & Reactions -->
+          <a href="chem-stoichiometry.html" class="topic-card">
+            <span class="topic-label">Core 03</span>
+            <h3>Stoichiometry &amp; Chemical Reactions</h3>
+            <p>
+              Mole ratios, limiting reactants, percent yield, and core reaction types that show up repeatedly.
+            </p>
+            <div class="topic-meta">
+              <span>Medium–high</span>
+              <span class="badge">Formula + logic</span>
+            </div>
+          </a>
+
+          <!-- 4. States & Gas Laws -->
+          <a href="chem-gas-laws.html" class="topic-card">
+            <span class="topic-label">Core 04</span>
+            <h3>States of Matter &amp; Gas Laws</h3>
+            <p>
+              Kinetic molecular theory, phase changes, Boyle, Charles, combined gas law, and PV = nRT.
+            </p>
+            <div class="topic-meta">
+              <span>High formula use</span>
+              <span class="badge">Fast points</span>
+            </div>
+          </a>
+
+          <!-- 5. Thermochemistry -->
+          <a href="chem-thermochemistry.html" class="topic-card">
+            <span class="topic-label">Core 05</span>
+            <h3>Thermochemistry &amp; Energetics</h3>
+            <p>
+              Endo vs exo, q = mcΔT, Hess's law, energy diagrams, and specific heat questions.
+            </p>
+            <div class="topic-meta">
+              <span>Moderate–high</span>
+              <span class="badge">Concept + calc</span>
+            </div>
+          </a>
+
+          <!-- 6. Solutions & Solubility -->
+          <a href="chem-solutions.html" class="topic-card">
+            <span class="topic-label">Core 06</span>
+            <h3>Solutions, Concentrations &amp; Solubility</h3>
+            <p>
+              Molarity, dilution, solubility rules, precipitation reactions, and colligative properties.
+            </p>
+            <div class="topic-meta">
+              <span>Medium yield</span>
+              <span class="badge">Important</span>
+            </div>
+          </a>
+
+          <!-- 7. Acids & Bases -->
+          <a href="chem-acids-bases.html" class="topic-card">
+            <span class="topic-label">Core 07</span>
+            <h3>Acids, Bases &amp; pH</h3>
+            <p>
+              Arrhenius vs Brønsted–Lowry vs Lewis, pH/pOH, strong vs weak, neutralization and titrations.
+            </p>
+            <div class="topic-meta">
+              <span>Medium–high</span>
+              <span class="badge">Buzz clues</span>
+            </div>
+          </a>
+
+          <!-- 8. Equilibrium -->
+          <a href="chem-equilibrium.html" class="topic-card">
+            <span class="topic-label">Core 08</span>
+            <h3>Chemical Equilibrium &amp; Le Chatelier</h3>
+            <p>
+              K vs Q, ICE tables, Le Chatelier shifts, Ksp and common ion effect patterns.
+            </p>
+            <div class="topic-meta">
+              <span>Medium yield</span>
+              <span class="badge">Conceptual</span>
+            </div>
+          </a>
+
+          <!-- 9. Kinetics -->
+          <a href="chem-kinetics.html" class="topic-card">
+            <span class="topic-label">Core 09</span>
+            <h3>Reaction Rates &amp; Kinetics</h3>
+            <p>
+              Collision theory, activation energy, catalysts, and rate law concepts.
+            </p>
+            <div class="topic-meta">
+              <span>Medium</span>
+              <span class="badge">Upper-level</span>
+            </div>
+          </a>
+
+          <!-- 10. Electrochemistry -->
+          <a href="chem-electrochem.html" class="topic-card">
+            <span class="topic-label">Core 10</span>
+            <h3>Redox Reactions &amp; Electrochemistry</h3>
+            <p>
+              Oxidation numbers, galvanic vs electrolytic cells, standard reduction potentials.
+            </p>
+            <div class="topic-meta">
+              <span>Lower–medium</span>
+              <span class="badge">Nice to have</span>
+            </div>
+          </a>
+
+          <!-- 11. Nuclear Chemistry -->
+          <a href="chem-nuclear.html" class="topic-card">
+            <span class="topic-label">Core 11</span>
+            <h3>Nuclear Chemistry</h3>
+            <p>
+              Alpha/beta/gamma decay, half-life, fission vs fusion, mass defect and binding energy.
+            </p>
+            <div class="topic-meta">
+              <span>Medium</span>
+              <span class="badge">Clustered</span>
+            </div>
+          </a>
+
+          <!-- 12. Lab Skills -->
+          <a href="chem-lab-skills.html" class="topic-card">
+            <span class="topic-label">Core 12</span>
+            <h3>Lab Techniques, Safety &amp; Measurement</h3>
+            <p>
+              Significant figures, dimensional analysis, common glassware, and safe lab practices.
+            </p>
+            <div class="topic-meta">
+              <span>Lower frequency</span>
+              <span class="badge">Quick review</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Suggested Path -->
+      <section class="card">
+        <div class="section-title">Suggested Path</div>
+        <h2>Where Carson Should Start</h2>
+        <p>
+          To prevent overwhelm and build confidence, Carson should work through Chemistry in this order:
+        </p>
+        <ul style="margin-top:0.5rem; padding-left:1.1rem; color:var(--text-muted); font-size:0.93rem; line-height:1.5;">
+          <li>1 → <strong>Atomic Structure &amp; Periodic Trends</strong></li>
+          <li>2 → <strong>Bonding, Geometry &amp; IMFs</strong></li>
+          <li>3 → <strong>Stoichiometry &amp; Reactions</strong></li>
+          <li>4 → <strong>Gas Laws</strong> and states of matter</li>
+          <li>5 → <strong>Thermochemistry</strong> basics</li>
+          <li>Then layer in <strong>Solutions, Acids/Bases, Equilibrium, Kinetics</strong> as time allows.</li>
+        </ul>
+      </section>
+    </main>
+
+    <div style="margin-top: 2rem; padding: 1rem; background: #fffbeb; border: 2px solid #fbbf24; border-radius: 0.75rem; text-align: center;">
+      <p style="color: #78350f; margin-bottom: 0.75rem; font-size: 0.9rem;">
+        <strong>Preview:</strong> Testing new content layout
+      </p>
+      <a href="atomic-periodic-strategy-map.html" style="display: inline-block; padding: 0.6rem 1.2rem; background: #fbbf24; color: #78350f; text-decoration: none; font-weight: 600; border-radius: 0.5rem; transition: background 0.25s ease;" onmouseover="this.style.background='#f59e0b'" onmouseout="this.style.background='#fbbf24'">
+        View Strategy Map Preview
+      </a>
+    </div>
+
+    <footer>
+      Chemistry Hub · CarsonPrep KAAC Science Training
+    </footer>
+  </div>
+</body>
+</html>

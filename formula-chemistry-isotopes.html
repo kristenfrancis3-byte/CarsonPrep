@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chemistry — Isotopes & Average Atomic Mass</title>
+  <style>
+    .hyf-chip{display:inline-block;padding:0.25rem 0.7rem;border-radius:999px;background:#e0ecff;color:#1e3a8a;font-weight:600;text-decoration:none}
+    body{font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;margin:1rem;background:#f3f4f6;color:#111827}
+    .back{display:inline-block;margin-bottom:1rem;color:#0f766e;text-decoration:none;font-weight:600}
+    .card{background:#fff;padding:1rem;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+    code{background:#f3f4f6;padding:0.15rem 0.3rem;border-radius:4px}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back" href="formula-chemistry.html">← Back</a>
+    <h1>2. Isotopes &amp; Average Atomic Mass</h1>
+  </header>
+
+  <div class="card">
+    <h3>Overview</h3>
+    <p><strong>Isotope notation:</strong> <span class="isotope"><sup>A</sup><sub>Z</sub>X</span> or <em>X‑A</em> (e.g., Carbon‑14).</p>
+    <p><strong>Average atomic mass formula:</strong></p>
+    <p><code>Average Mass = Σ (isotope mass × fractional abundance)</code></p>
+    <p><strong>Pattern:</strong> Weighted average → convert % to decimal. Heavier isotope with higher percent pulls the average toward it.</p>
+
+    <h2>Practice Questions</h2>
+    <ol class="qa-list">
+      <li>
+        <p class="q">1. What term describes atoms of the same element that differ only in neutron count?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans1">Show answer</button>
+        <div id="ans1" class="answer" hidden>Isotopes</div>
+      </li>
+
+      <li>
+        <p class="q">2. If chlorine-35 is 75% abundant and chlorine-37 is 25% abundant, what is the average atomic mass?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans2">Show answer</button>
+        <div id="ans2" class="answer" hidden>35.5 amu</div>
+      </li>
+
+      <li>
+        <p class="q">3. What formula is used to calculate average atomic mass?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans3">Show answer</button>
+        <div id="ans3" class="answer" hidden>Σ(mass × fractional abundance)</div>
+      </li>
+
+      <li>
+        <p class="q">4. An element’s average atomic mass moves toward which isotope?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans4">Show answer</button>
+        <div id="ans4" class="answer" hidden>The most abundant isotope</div>
+      </li>
+
+      <li>
+        <p class="q">5. What isotope notation format is written as carbon-14?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans5">Show answer</button>
+        <div id="ans5" class="answer" hidden>X–A format (element‑mass number)</div>
+      </li>
+    </ol>
+
+    <!-- ⭐ SECTION 2 — Isotopes & Atomic Mass -->
+    <div class="card buzzer-card">
+      <h3>Isotopes &amp; Atomic Mass – Buzz-in-First-Three-Words</h3>
+      <ul class="term-list">
+        <li><span class="clue">“Atoms of the…”</span> → <span class="answer">Isotopes</span></li>
+        <li><span class="clue">“Weighted average atomic…”</span> → <span class="answer">Average atomic mass</span></li>
+        <li><span class="clue">“This mass appears…”</span> → <span class="answer">Atomic mass</span></li>
+        <li><span class="clue">“Most abundant isotope…”</span> → <span class="answer">Controls average</span></li>
+        <li><span class="clue">“Same protons different…”</span> → <span class="answer">Isotopes</span></li>
+      </ul>
+    </div>
+
+    <style>
+      .qa-list { padding-left: 1rem; }
+      .q { margin: 0.35rem 0; font-weight:600; }
+      .toggle-answer { margin-top: 0.25rem; padding:0.35rem 0.5rem; border-radius:6px; border:1px solid #d1d5db; background:#fff; cursor:pointer; }
+      .answer { margin-top:0.5rem; padding:0.5rem; background:#f9fafb; border-left:3px solid #0f766e; border-radius:6px; }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('.toggle-answer').forEach(function(btn){
+          btn.addEventListener('click', function(){
+            var id = btn.getAttribute('aria-controls');
+            var ans = document.getElementById(id);
+            var visible = !ans.hasAttribute('hidden');
+            if(visible){ ans.setAttribute('hidden',''); btn.textContent = 'Show answer'; btn.setAttribute('aria-expanded','false'); }
+            else { ans.removeAttribute('hidden'); btn.textContent = 'Hide answer'; btn.setAttribute('aria-expanded','true'); }
+          });
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>

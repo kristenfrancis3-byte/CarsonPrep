@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KAAC Predictable Templates – CarsonPrep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --bg-card: #ffffff;
+      --accent: #3b82f6;
+      --accent-soft: #2563eb;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text-main); min-height: 100vh; line-height: 1.6; font-size: 17px; }
+
+    /* top nav */
+    .top-nav { width:100%; background: rgba(255,255,255,0.95); border-bottom:1px solid var(--border-subtle); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 999; }
+    .nav-inner { max-width:1200px; margin:0 auto; height:60px; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+    .nav-brand { font-size:1.2rem; font-weight:700; color:var(--accent); }
+    .nav-links { list-style:none; display:flex; gap:1.25rem; }
+    .nav-links li a { text-decoration:none; color:var(--text-main); font-weight:500; }
+    .nav-links li a:hover { color:var(--accent); }
+
+    .app-shell { max-width:1100px; margin:0 auto; padding:2rem 1.25rem 3rem; }
+
+    .back-button { display:inline-flex; align-items:center; gap:0.5rem; padding:0.5rem 1rem; margin-bottom:1rem; color:var(--accent); text-decoration:none; font-size:0.95rem; font-weight:600; }
+    .back-button:hover { color:var(--accent-soft); gap:0.75rem; }
+
+    .kaac-tips-section, .atomic-overview { font-family: Arial, sans-serif; max-width:960px; margin:0 auto; padding:20px; line-height:1.6; }
+    .ao-title { font-size:1.8em; font-weight:800; margin-bottom:6px; }
+    .ao-intro { color:#444; margin-bottom:14px; font-size:0.98em; }
+    .ao-section-heading { font-size:1.3em; font-weight:800; margin:18px 0 8px 0; }
+    .ao-subheading { font-size:1.05em; font-weight:800; margin:12px 0 6px 0; }
+    .ao-text { font-size:0.98em; margin:6px 0; color:var(--text-muted); }
+    .ao-list { margin:6px 0 10px 22px; font-size:0.96em; }
+    .ao-callout { background:#f5f7ff; border-left:4px solid #4a90e2; padding:10px 12px; margin:10px 0; font-size:0.95em; }
+    .ao-check { color:#16a34a; margin-right:6px; }
+    .ao-small { font-size:0.9em; color:#555; }
+
+    /* Table of contents */
+    .toc { background:#fff; border:1px solid rgba(74,144,226,0.08); padding:10px 12px; border-radius:8px; margin:12px 0 18px 0; }
+    .toc strong{display:block; margin-bottom:6px; color:var(--text-main);} 
+    .toc ul{ margin:0; padding-left:16px; }
+    .toc a{ color:var(--accent); text-decoration:none; font-weight:600; }
+
+    /* Back to top */
+    #back-to-top{position:fixed;right:18px;bottom:18px;background:var(--accent);color:#fff;padding:8px 10px;border-radius:10px;display:none;box-shadow:0 8px 20px rgba(0,0,0,0.12);z-index:9999;text-decoration:none;font-weight:700}
+    #back-to-top.show{display:block}
+
+    /* Copy button */
+    .copy-btn{margin-left:8px;background:#eef6ff;border:1px solid rgba(59,130,246,0.12);padding:2px 6px;border-radius:6px;cursor:pointer;font-size:0.85rem}
+
+    /* Focus for accessibility */
+    :focus-visible{outline:3px solid #cfe7ff;outline-offset:2px}
+
+    /* Mobile helpers */
+    @media (max-width: 720px){
+      .toc{font-size:0.95rem}
+    }
+
+    footer { margin-top:2rem; text-align:center; color:var(--text-muted); font-size:0.8rem; opacity:0.85; }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-brand">CarsonPrep</div>
+      <ul class="nav-links">
+        <li><a href="carson_study_portal.html">Home</a></li>
+        <li><a href="chemistry-hub.html">Chemistry Hub</a></li>
+        <li><a href="physics-hub.html">Physics Hub</a></li>
+        <li><a href="earthspace-hub.html">Earth &amp; Space</a></li>
+        <li><a href="biology-hub.html">Biology</a></li>
+        <li><a href="buzzer-training.html">Buzzer Training</a></li>
+        <li><a href="formula-library.html">Formula Sheets</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <a href="chem-atomic-periodic.html" class="back-button">← Back to Atomic Structure &amp; Periodic Trends</a>
+
+    <!-- Inserted atomic-overview section provided by user -->
+    <section class="atomic-overview" role="main">
+
+      <!-- SECTION OVERVIEW -->
+      <h1 class="ao-title">SECTION OVERVIEW</h1>
+      <p class="ao-intro">
+        Atomic &amp; Periodic Relationships is one of the highest-frequency KAAC chemistry categories.
+        Questions fall into predictable templates, rely heavily on early-buzz trigger words, and reward competitors
+        who know the relationships, not just the definitions.
+      </p>
+      <p class="ao-intro">
+        <strong>Carson’s goal:</strong><br />
+        Recognize the pattern in the first 2–5 words &rarr; predict the answer &rarr; buzz confidently.
+      </p>
+
+      <!-- Table of contents -->
+      <nav class="toc" aria-label="On this page">
+        <strong>On this page</strong>
+        <ul>
+          <li><a href="#four-archetypes">I. Four KAAC Question Archetypes</a></li>
+          <li><a href="#buzzing-logic">II. Buzzing Logic Model</a>
+            <ul>
+              <li><a href="#step-1">Step 1 — Identify the QUESTION TYPE</a></li>
+              <li><a href="#step-2">Step 2 — Identify the KEYWORD</a></li>
+              <li><a href="#step-3">Step 3 — Predict the ending</a></li>
+              <li><a href="#step-4">Step 4 — Answer with Confidence</a></li>
+            </ul>
+          </li>
+          <li><a href="#high-value-patterns">III. High-Value Patterns</a></li>
+          <li><a href="#daily-training">IV. What Carson Should Train Daily</a></li>
+          <li><a href="#advanced-buzz">V. How Carson Should Buzz</a></li>
+          <li><a href="#decision-tree">VI. Ultra-Quick Decision Tree</a></li>
+        </ul>
+      </nav>
+
+      <!-- I. Four Archetypes -->
+      <h2 id="four-archetypes" class="ao-section-heading">🧭 I. The Four KAAC Question Archetypes</h2>
+      <p class="ao-text">
+        KAAC science questions in this category fall into four predictable “archetype buckets.”
+        Carson should identify the type immediately when the question begins.
+      </p>
+
+      <!-- 1. Definition-in-Disguise -->
+      <h3 id="def-disguise" class="ao-subheading">1. Definition-in-Disguise Questions</h3>
+      <p class="ao-text">Start with:</p>
+      <ul class="ao-list">
+        <li>“This rule…”</li>
+        <li>“This trend…”</li>
+        <li>“This subatomic particle…”</li>
+        <li>“This quantity…”</li>
+        <li>“This effect…”</li>
+      </ul>
+      <p class="ao-text">
+        These ALWAYS point to a single formula or concept.
+      </p>
+      <div class="ao-callout">
+        <strong>Carson’s Strategy:</strong><br />
+        When you hear a category keyword (rule, particle, trend, effect), instantly lock into the subcategory.
+        Don’t wait for the rest of the clue.
+      </div>
+
+      <!-- 2. Relationship/Trend -->
+      <h3 id="relationship-trend" class="ao-subheading">2. Relationship/Trend Questions</h3>
+      <p class="ao-text">Start with:</p>
+      <ul class="ao-list">
+        <li>“As ___ increases…”</li>
+        <li>“Greater ___ leads to…”</li>
+        <li>“A higher number of protons causes…”</li>
+        <li>“This value decreases because…”</li>
+      </ul>
+      <p class="ao-text">
+        These test cause-and-effect thinking.
+      </p>
+      <div class="ao-callout">
+        <strong>Carson’s Strategy:</strong><br />
+        Immediately ask:<br />
+        “Is this about Z<sub>eff</sub> or shielding?”<br />
+        90% of trend questions reduce to those two words.
+      </div>
+
+      <!-- 3. Equation/Identity -->
+      <h3 id="equation-identity" class="ao-subheading">3. Equation/Identity Questions</h3>
+      <p class="ao-text">Start with:</p>
+      <ul class="ao-list">
+        <li>“This equation relates…”</li>
+        <li>“This constant equals…”</li>
+        <li>“The formula for photon energy…”</li>
+        <li>“E equals h times…”</li>
+      </ul>
+      <p class="ao-text">
+        These appear in the EM and nuclear subsections.
+      </p>
+      <div class="ao-callout">
+        <strong>Carson’s Strategy:</strong><br />
+        Identify the formula type quickly:
+        <ul class="ao-list">
+          <li>Wavelength–frequency &rarr; <code>c = λν</code></li>
+          <li>Energy–frequency &rarr; <code>E = hν</code></li>
+          <li>Mass–energy &rarr; <code>E = mc²</code></li>
+        </ul>
+        Buzz as soon as it's clear which formula is being described.
+      </div>
+
+      <!-- 4. Comparison/Ranking -->
+      <h3 id="comparison-ranking" class="ao-subheading">4. Comparison/Ranking Questions</h3>
+      <p class="ao-text">Start with:</p>
+      <ul class="ao-list">
+        <li>“Which is larger…”</li>
+        <li>“Which has higher…”</li>
+        <li>“Rank these ions…”</li>
+        <li>“Which has lower ionization energy…”</li>
+      </ul>
+      <p class="ao-text">
+        These test periodic trends or ion sizes.
+      </p>
+      <div class="ao-callout">
+        <strong>Carson’s Strategy:</strong><br />
+        Use the UP-RIGHT rule instantly:
+        <ul class="ao-list">
+          <li>Size increases down-left</li>
+          <li>Everything else increases up-right</li>
+        </ul>
+        No need to think — it becomes reflexive.
+      </div>
+
+      <!-- II. Buzzing Logic Model -->
+      <h2 id="buzzing-logic" class="ao-section-heading">🧩 II. Buzzing Logic Model</h2>
+      <p class="ao-text">
+        Here is the process state champions follow mentally — in order — for this category.
+      </p>
+
+      <h3 id="step-1" class="ao-subheading">Step 1 — Identify the QUESTION TYPE</h3>
+      <p class="ao-text">In the first 1–3 words:</p>
+      <ul class="ao-list">
+        <li>“This particle…” &rarr; Subatomic</li>
+        <li>“This rule…” &rarr; Configurations</li>
+        <li>“This trend…” &rarr; Periodic trends</li>
+        <li>“This equation…” &rarr; EM or nuclear</li>
+        <li>“As X increases…” &rarr; Trend or Z<sub>eff</sub></li>
+      </ul>
+      <p class="ao-text">
+        This tells Carson exactly which part of the brain to activate.
+      </p>
+
+      <h3 id="step-2" class="ao-subheading">Step 2 — Identify the KEYWORD</h3>
+      <p class="ao-text">
+        Every question in this category hinges on one clue word:
+      </p>
+      <ul class="ao-list">
+        <li>“opposite spins” &rarr; Pauli</li>
+        <li>“singly before pairing” &rarr; Hund</li>
+        <li>“lowest energy orbitals” &rarr; Aufbau</li>
+        <li>“weighted average” &rarr; atomic mass</li>
+        <li>“percent abundance” &rarr; isotopes</li>
+        <li>“positive ion” &rarr; cation</li>
+        <li>“larger radius ion” &rarr; anion</li>
+        <li>“mass difference” &rarr; mass defect</li>
+      </ul>
+      <p class="ao-text">
+        Carson should memorize these as instant triggers.
+      </p>
+
+      <h3 id="step-3" class="ao-subheading">Step 3 — Predict the ending</h3>
+      <p class="ao-text">
+        KAAC questions are short.
+        If the first half matches a known template, the second half is predictable.
+      </p>
+      <ul class="ao-list">
+        <li>“This rule states that electrons…” &rarr; fill lowest &rarr; Aufbau</li>
+        <li>“This trend increases down…” &rarr; radius</li>
+        <li>“This equation relates wavelength…” &rarr; <code>c = λν</code></li>
+        <li>“This subatomic particle that differs…” &rarr; neutron</li>
+        <li>“This effect requires threshold…” &rarr; photoelectric</li>
+        <li>“Increasing shielding causes…” &rarr; larger radius</li>
+      </ul>
+      <p class="ao-text">
+        If Carson sees the pattern, he should buzz before the question is done.
+      </p>
+
+      <h3 id="step-4" class="ao-subheading">Step 4 — Answer with Confidence</h3>
+      <p class="ao-text">
+        Because he’s pattern-buzzing, the key is to trust the structure, not the missing part.
+        Carson’s competitive advantage is pattern recognition &rarr; not waiting for confirmation.
+      </p>
+
+      <!-- III. High-Value Patterns -->
+      <h2 id="high-value-patterns" class="ao-section-heading">⚡ III. High-Value Patterns KAAC Writers Repeat</h2>
+      <p class="ao-text">
+        These are extremely common across years.
+      </p>
+
+      <h3 id="pattern-1" class="ao-subheading">Pattern 1: “This rule…”</h3>
+      <p class="ao-text">
+        Answer is always one of three:
+      </p>
+      <ul class="ao-list">
+        <li>Aufbau</li>
+        <li>Hund</li>
+        <li>Pauli</li>
+      </ul>
+      <p class="ao-text">Buzz after the first 3–5 words.</p>
+
+      <h3 id="pattern-2" class="ao-subheading">Pattern 2: “Weighted average…”</h3>
+      <p class="ao-text">
+        This always means atomic mass. Buzz instantly.
+      </p>
+
+      <h3 id="pattern-3" class="ao-subheading">Pattern 3: “Increases down, decreases across…”</h3>
+      <p class="ao-text">
+        Answer = atomic radius, unless the clue mentions metallic character.
+      </p>
+
+      <h3 id="pattern-4" class="ao-subheading">Pattern 4: “Energy required to remove…”</h3>
+      <p class="ao-text">
+        Answer = ionization energy.
+      </p>
+
+      <h3 id="pattern-5" class="ao-subheading">Pattern 5: “As wavelength decreases…”</h3>
+      <p class="ao-text">
+        Answer = energy increases or frequency increases.
+      </p>
+
+      <h3 id="pattern-6" class="ao-subheading">Pattern 6: “Positive ions have…”</h3>
+      <p class="ao-text">
+        Answer = smaller radius (cations shrink).
+      </p>
+
+      <h3 id="pattern-7" class="ao-subheading">Pattern 7: “Same electrons but different sizes…”</h3>
+      <p class="ao-text">
+        Answer = isoelectronic series (then rank by proton count).
+      </p>
+
+      <h3 id="pattern-8" class="ao-subheading">Pattern 8: “minimum frequency required…”</h3>
+      <p class="ao-text">
+        Answer = threshold frequency.
+      </p>
+
+      <h3 id="pattern-9" class="ao-subheading">Pattern 9: “mass difference between predicted…”</h3>
+      <p class="ao-text">
+        Answer = mass defect.
+      </p>
+
+      <h3 id="pattern-10" class="ao-subheading">Pattern 10: “most stable nuclei…”</h3>
+      <p class="ao-text">
+        Answer = iron.
+      </p>
+
+      <!-- IV. Daily Training -->
+      <h2 id="daily-training" class="ao-section-heading">🥇 IV. What Carson Should Train Daily (High ROI)</h2>
+      <ul class="ao-list">
+        <li><span class="ao-check">✔️</span><strong>1. All periodic trend directions</strong><br /><span class="ao-small">(size, ionization energy, electronegativity, affinity)</span></li>
+        <li><span class="ao-check">✔️</span><strong>2. All configuration rules</strong><br /><span class="ao-small">(Aufbau, Pauli, Hund)</span></li>
+        <li><span class="ao-check">✔️</span><strong>3. All EM formulas</strong><br /><span class="ao-small">(<code>c = λν</code> and <code>E = hν</code>)</span></li>
+        <li><span class="ao-check">✔️</span><strong>4. Ion-size rules</strong><br /><span class="ao-small">(cations shrink, anions grow, isoelectronic series)</span></li>
+        <li><span class="ao-check">✔️</span><strong>5. Z<sub>eff</sub> logic</strong><br />
+          <span class="ao-small">
+            Across = ↑, down = same-ish.<br />
+            Shielding = the cause of weirdness.
+          </span>
+        </li>
+      </ul>
+      <p class="ao-text">
+        These five categories produce 70%+ of KAAC questions here.
+      </p>
+
+      <!-- V. Advanced Buzz Strategy -->
+      <h2 id="advanced-buzz" class="ao-section-heading">🚀 V. How Carson Should Buzz (Advanced Strategy)</h2>
+      <ul class="ao-list">
+        <li>1. Buzz when the category becomes obvious. Not when the exact answer appears.</li>
+        <li>2. Don’t wait for the payoff line. KAAC questions are too short — by the time the specific clue comes, someone else has buzzed.</li>
+        <li>3. Trust pattern recognition. His IQ and intuition are his advantage.</li>
+        <li>4. If the question mentions cause/effect, answer with Z<sub>eff</sub> or shielding. It’s almost always one of the two.</li>
+        <li>5. If the question mentions frequency/wavelength, answer with EM formulas. Predict the formula before they finish saying “wavelength.”</li>
+      </ul>
+
+      <!-- VI. Ultra-Quick Decision Tree -->
+      <h2 id="decision-tree" class="ao-section-heading">🔥 VI. Ultra-Quick Decision Tree (What Carson Actually Uses in Competition)</h2>
+      <p class="ao-text">
+        As soon as the question starts:
+      </p>
+      <ul class="ao-list">
+        <li>“This particle…” &rarr; Proton / Electron / Neutron</li>
+        <li>“This rule…” &rarr; Aufbau / Hund / Pauli</li>
+        <li>“Weighted average…” &rarr; Atomic mass</li>
+        <li>“Same element…” &rarr; Isotopes</li>
+        <li>“As X increases…” &rarr; Z<sub>eff</sub> or shielding</li>
+        <li>“This trend…” &rarr; Radius / Ionization / Electronegativity</li>
+        <li>“This equation…” &rarr; <code>c = λν</code> / <code>E = hν</code> / <code>E = mc²</code></li>
+        <li>“Positive ions…” &rarr; Smaller</li>
+        <li>“Negative ions…” &rarr; Larger</li>
+        <li>“Same electrons…” &rarr; Isoelectronic</li>
+        <li>“Minimum frequency…” &rarr; Threshold</li>
+        <li>“Mass difference…” &rarr; Mass defect</li>
+      </ul>
+      <p class="ao-text">
+        This is exactly how state champions get so fast.
+      </p>
+
+    </section>
+
+    <footer>
+      KAAC Predictable Templates · CarsonPrep KAAC Science Training
+    </footer>
+  </div>
+  <a id="back-to-top" href="#top" aria-label="Back to top">↑</a>
+  <script>
+    // Small helpers: back-to-top toggle, collapse long lists on small screens, add copy buttons for formulas
+    document.addEventListener('DOMContentLoaded', function(){
+      // Back to top visibility
+      const b = document.getElementById('back-to-top');
+      window.addEventListener('scroll', function(){
+        if(window.scrollY > 300) b.classList.add('show'); else b.classList.remove('show');
+      });
+
+      // Wrap long lists in a details element on small screens
+      function applyDetails() {
+        const lists = document.querySelectorAll('.atomic-overview ul');
+        lists.forEach(ul => {
+          if(ul.children.length >= 6 && !ul.closest('details')){
+            const d = document.createElement('details');
+            d.className = 'mobile-collapse';
+            const summary = document.createElement('summary');
+            summary.textContent = 'Examples (expand)';
+            d.appendChild(summary);
+            ul.parentNode.insertBefore(d, ul);
+            d.appendChild(ul);
+          }
+        });
+        // Close or open based on width
+        document.querySelectorAll('details.mobile-collapse').forEach(d=>{
+          d.open = window.innerWidth >= 720;
+        });
+      }
+      applyDetails();
+      window.addEventListener('resize', applyDetails);
+
+      // Add copy buttons next to inline formulas
+      document.querySelectorAll('.atomic-overview code').forEach(code=>{
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.type = 'button';
+        btn.setAttribute('aria-label','Copy formula');
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', ()=>{
+          navigator.clipboard.writeText(code.textContent).then(()=>{
+            btn.textContent = 'Copied';
+            setTimeout(()=>btn.textContent='Copy',1200);
+          });
+        });
+        code.parentNode.insertBefore(btn, code.nextSibling);
+      });
+    });
+  </script>
+</body>
+</html>

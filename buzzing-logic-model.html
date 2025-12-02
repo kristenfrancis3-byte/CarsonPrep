@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buzzing Logic Model – CarsonPrep</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --bg-card: #ffffff;
+      --accent: #3b82f6;
+      --accent-soft: #2563eb;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    /* ───── TOP NAV BAR ───── */
+    .top-nav {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 60px;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links li a:hover {
+      color: var(--accent);
+    }
+
+    /* ───── PAGE LAYOUT ───── */
+    .app-shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: gap 0.25s ease, color 0.25s ease;
+    }
+
+    .back-button:hover {
+      gap: 0.75rem;
+      color: var(--accent-soft);
+    }
+
+    .buzzing-section {
+      font-family: Arial, sans-serif;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .ao-title {
+      font-size: 1.8em;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .ao-intro {
+      color: #444;
+      margin-bottom: 14px;
+      font-size: 0.98em;
+    }
+
+    .ao-section-heading {
+      font-size: 1.3em;
+      font-weight: 800;
+      margin: 18px 0 8px 0;
+    }
+
+    .ao-subheading {
+      font-size: 1.05em;
+      font-weight: 800;
+      margin: 12px 0 6px 0;
+    }
+
+    .ao-text {
+      font-size: 0.98em;
+      margin: 6px 0;
+      color: var(--text-muted);
+    }
+
+    .ao-list {
+      margin: 6px 0 10px 22px;
+      font-size: 0.96em;
+    }
+
+    .ao-list li {
+      margin-bottom: 4px;
+    }
+
+    .ao-callout {
+      background: #f5f7ff;
+      border-left: 4px solid #4a90e2;
+      padding: 10px 12px;
+      margin: 10px 0;
+      font-size: 0.95em;
+    }
+
+    .ao-callout ul {
+      margin: 6px 0 0 18px;
+    }
+
+    /* Back to top */
+    #back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 10px;
+      display: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      z-index: 9999;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    #back-to-top.show {
+      display: block;
+    }
+
+    :focus-visible {
+      outline: 3px solid #cfe7ff;
+      outline-offset: 2px;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Shared Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-brand">CarsonPrep</div>
+      <ul class="nav-links">
+        <li><a href="carson_study_portal.html">Home</a></li>
+        <li><a href="chemistry-hub.html">Chemistry Hub</a></li>
+        <li><a href="physics-hub.html">Physics Hub</a></li>
+        <li><a href="earthspace-hub.html">Earth &amp; Space</a></li>
+        <li><a href="biology-hub.html">Biology</a></li>
+        <li><a href="buzzer-training.html">Buzzer Training</a></li>
+        <li><a href="formula-library.html">Formula Sheets</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="app-shell">
+    <a href="chem-atomic-periodic.html" class="back-button">← Back to Atomic Structure &amp; Periodic Trends</a>
+
+    <!-- Page Header with Pills -->
+    <header class="page-header">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+        <div class="pill">Core 01 · High Frequency</div>
+        <a href="atomic-periodic-strategy-map.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Strategy Map</a>
+        <a href="four-kaac-archetypes.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Question Archetypes</a>
+        <a href="buzzing-logic-model.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Buzzing Logic Model</a>
+        <a href="high-value-patterns.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ High-Value Patterns</a>
+        <a href="high-roi-training.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ High-ROI</a>
+        <a href="buzz-strategy.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Buzz Strategy</a>
+        <a href="ultra-quick-decision-tree.html" class="pill" style="text-decoration: none; cursor: pointer; background: rgba(59, 130, 246, 0.12); border: 1px solid rgba(59, 130, 246, 0.4); transition: background 0.25s ease, border-color 0.25s ease;" onmouseover="this.style.background='rgba(59, 130, 246, 0.2)'; this.style.borderColor='rgba(59, 130, 246, 0.6)'" onmouseout="this.style.background='rgba(59, 130, 246, 0.12)'; this.style.borderColor='rgba(59, 130, 246, 0.4)'">→ Quick Decision Tree</a>
+      </div>
+    </header>
+
+    <section class="buzzing-section" role="main">
+      <h1 class="ao-title">Buzzing Logic Model</h1>
+      <p class="ao-intro">
+        Here is the process state champions follow mentally — in order — for this category.
+      </p>
+
+      <!-- Step 1 -->
+      <h2 id="step-1" class="ao-subheading">Step 1 — Identify the QUESTION TYPE</h2>
+      <p class="ao-text">In the first 1–3 words:</p>
+      <ul class="ao-list">
+        <li>"This particle…" &rarr; Subatomic</li>
+        <li>"This rule…" &rarr; Configurations</li>
+        <li>"This trend…" &rarr; Periodic trends</li>
+        <li>"This equation…" &rarr; EM or nuclear</li>
+        <li>"As X increases…" &rarr; Trend or Z<sub>eff</sub></li>
+      </ul>
+      <p class="ao-text">
+        This tells Carson exactly which part of the brain to activate.
+      </p>
+
+      <!-- Step 2 -->
+      <h2 id="step-2" class="ao-subheading">Step 2 — Identify the KEYWORD</h2>
+      <p class="ao-text">
+        Every question in this category hinges on one clue word:
+      </p>
+      <ul class="ao-list">
+        <li>"opposite spins" &rarr; Pauli</li>
+        <li>"singly before pairing" &rarr; Hund</li>
+        <li>"lowest energy orbitals" &rarr; Aufbau</li>
+        <li>"weighted average" &rarr; atomic mass</li>
+        <li>"percent abundance" &rarr; isotopes</li>
+        <li>"positive ion" &rarr; cation</li>
+        <li>"larger radius ion" &rarr; anion</li>
+        <li>"mass difference" &rarr; mass defect</li>
+      </ul>
+      <p class="ao-text">
+        Carson should memorize these as instant triggers.
+      </p>
+
+      <!-- Step 3 -->
+      <h2 id="step-3" class="ao-subheading">Step 3 — Predict the ending</h2>
+      <p class="ao-text">
+        KAAC questions are short.
+        If the first half matches a known template, the second half is predictable.
+      </p>
+      <ul class="ao-list">
+        <li>"This rule states that electrons…" &rarr; fill lowest &rarr; Aufbau</li>
+        <li>"This trend increases down…" &rarr; radius</li>
+        <li>"This equation relates wavelength…" &rarr; <code>c = λν</code></li>
+        <li>"This subatomic particle that differs…" &rarr; neutron</li>
+        <li>"This effect requires threshold…" &rarr; photoelectric</li>
+        <li>"Increasing shielding causes…" &rarr; larger radius</li>
+      </ul>
+      <p class="ao-text">
+        If Carson sees the pattern, he should buzz before the question is done.
+      </p>
+
+      <!-- Step 4 -->
+      <h2 id="step-4" class="ao-subheading">Step 4 — Answer with Confidence</h2>
+      <p class="ao-text">
+        Because he's pattern-buzzing, the key is to trust the structure, not the missing part.
+        Carson's competitive advantage is pattern recognition &rarr; not waiting for confirmation.
+      </p>
+    </section>
+
+    <footer>
+      Buzzing Logic Model · CarsonPrep KAAC Science Training
+    </footer>
+  </div>
+
+  <a id="back-to-top" href="#top" aria-label="Back to top">↑</a>
+  <script>
+    // Back to top visibility toggle
+    const b = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 300) b.classList.add('show');
+      else b.classList.remove('show');
+    });
+  </script>
+</body>
+</html>
