@@ -2,246 +2,241 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CarsonPrep – Science Study Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css">
-
-  <style>
-    :root {
-      --bg: #0f172a;
-      --bg-card: #111827;
-      --accent: #38bdf8;
-      --accent-soft: #0ea5e9;
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: #1f2937;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 48%, #000 100%);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 2rem 1rem 3rem;
-    }
-
-    .app-shell {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    header {
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.4rem;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.4rem;
-    }
-
-    header p {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      max-width: 640px;
-      margin: 0.25rem auto;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.15rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(56, 189, 248, 0.06);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.75rem;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: radial-gradient(circle at top left, #1f2937 0, #020617 55%, #020617 100%);
-      border-radius: 1rem;
-      border: 1px solid var(--border-subtle);
-      padding: 1.25rem 1.25rem 1.4rem;
-      box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.65),
-        0 0 0 1px rgba(15, 23, 42, 0.9);
-    }
-
-    .card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    .section-title {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .two-col {
-      display: grid;
-      gap: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .two-col {
-        grid-template-columns: 1.4fr 1fr;
-      }
-    }
-
-    ul.bullet-list {
-      list-style: none;
-      margin-top: 0.3rem;
-    }
-
-    ul.bullet-list li {
-      position: relative;
-      padding-left: 1.1rem;
-      font-size: 0.93rem;
-      color: var(--text-muted);
-      margin-bottom: 0.25rem;
-    }
-
-    ul.bullet-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--accent-soft);
-    }
-
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      opacity: 0.85;
-    }
-  </style>
+  <title>CarsonPrep – KAAC Science & A/H Training Portal</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <!-- Top Navigation -->
   <nav class="top-nav">
-  <div class="nav-inner">
-    <div class="nav-brand">
-      <a href="index.html" style="text-decoration:none; color:inherit;">CarsonPrep</a>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="chemistry-hub.html">Chemistry</a></li>
-      <li><a href="physics-hub.html">Physics</a></li>
-      <li><a href="earthspace-hub.html">Earth &amp; Space</a></li>
-      <li><a href="biology-hub.html">Biology</a></li>
-      <li><a href="buzzer-training.html">Buzzer Training</a></li>
-      <li><a href="formula-library.html">Study Tools</a></li>
-    </ul>
-  </div>
-</nav>
-  <div class="app-shell">
-
-    <header>
-      <div class="pill">
-        <span>CarsonPrep</span>
-        <span>Science State Training Hub</span>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html" style="text-decoration:none; color:inherit;">CarsonPrep</a>
       </div>
-      <h1>Carson’s Science Study Portal</h1>
-      <p>
-        A focused, data-driven training space built just for Carson, based on real KAAC Science questions.
-        This is the clean starting point—ready for you to expand section-by-section.
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chemistry-hub.html">Chemistry</a></li>
+        <li><a href="physics-hub.html">Physics</a></li>
+        <li><a href="earthspace-hub.html">Earth &amp; Space</a></li>
+        <li><a href="biology-hub.html">Biology</a></li>
+        <li><a href="buzzer-training.html">Buzzer Training</a></li>
+        <li><a href="formula-library.html">Study Tools</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-content">
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1 class="hero-title">CarsonPrep</h1>
+      <p class="hero-subtitle">
+        A custom-built science and arts &amp; humanities portal designed just for Carson,
+        based on real KAAC State questions, his strengths, and how his brain learns best.
       </p>
-    </header>
 
-    <main>
+      <div class="callout">
+        <strong>What this site does:</strong>  
+        It doesn’t give you random facts. It gives you the <em>patterns</em> that KAAC loves:
+        high-frequency topics, repeated clue styles, and early-buzz triggers – so you can think
+        and buzz like a state-level player.
+      </div>
 
-      <!-- HERO / OVERVIEW -->
-      <section class="card">
-        <div class="section-title">Overview</div>
-        <h2>How This Portal Will Work</h2>
-        <p>
-          This page will evolve into Carson’s customized science training platform. You can add permanent
-          sections here for Chemistry, Physics, Formula Libraries, Buzzer Drills, Competition Mindset,
-          and custom study tools as the project grows.
-        </p>
-      </section>
+      <div class="btn-row">
+        <a class="button" href="chemistry-hub.html">Start with Chemistry Hub</a>
+        <a class="button secondary" href="#how-to-use">How to Use This Portal</a>
+      </div>
+    </section>
 
-      <!-- TOPIC HUB PLACEHOLDER -->
-      <section class="card two-col">
-        <div>
-          <div class="section-title">Topic Hubs</div>
-          <h2>Major Science Areas (Placeholder)</h2>
+    <!-- Quick Start Section -->
+    <section class="section" id="how-to-use">
+      <h2>Quick Start for Carson</h2>
+      <p>
+        There is no strict daily schedule here on purpose. This portal is organized by
+        <strong>subjects</strong> and <strong>study themes</strong> so you can follow your focus
+        and still work on what matters most for KAAC.
+      </p>
+
+      <ol>
+        <li><strong>Start in Chemistry → Foundations.</strong> Chemistry is about 40% of KAAC Science.</li>
+        <li><strong>Layer in Buzzer Training.</strong> Use the strategy and buzzing pages to train your early-buzz instincts.</li>
+        <li><strong>Explore Physics, Earth &amp; Space, Biology, and A/H.</strong> Use hubs and topic pages when you’re ready.</li>
+        <li><strong>Come back to topics.</strong> There’s no “falling behind” – just making progress.</li>
+      </ol>
+    </section>
+
+    <!-- Study Hubs Section -->
+    <section class="section">
+      <h2>Core Study Hubs</h2>
+      <p>
+        These are the main science categories KAAC tests. Each hub will grow with patterns, buzzwords,
+        formulas, and practice built from real questions.
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Chemistry Hub</h3>
           <p>
-            Later, you’ll add detailed subpages for Chemistry, Physics, Earth & Space, and Biology. Those hubs
-            will hold formula sheets, drills, summaries, and high-yield study content.
+            High-frequency content: atomic &amp; periodic structure, bonding, reactions, thermodynamics,
+            solutions, nuclear, and more.
           </p>
-        </div>
-        <div>
-          <ul class="bullet-list">
-            <li>Chemistry Hub — priority (~40% of questions)</li>
-            <li>Physics Hub — mechanics, E&M, thermodynamics</li>
-            <li>Earth & Space Science — astronomy, geology</li>
-            <li>Biology Essentials — genetics & cell structure</li>
-          </ul>
-        </div>
-      </section>
+          <div class="pill-row">
+            <span class="pill">≈40% of KAAC Science</span>
+            <span class="pill">Foundations First</span>
+          </div>
+          <a class="button secondary" href="chemistry-hub.html">Go to Chemistry Hub</a>
+        </article>
 
-      <!-- BUZZER TRAINING PLACEHOLDER -->
-      <section class="card">
-        <div class="section-title">Buzzer Training</div>
-        <h2>Buzzer Speed &amp; Pattern Drills (Placeholder)</h2>
-        <p>
-          This will later hold Carson’s custom buzzer exercises, fast-clue recognition cards, and competition-speed
-          drills designed for Quick Recall.
-        </p>
-      </section>
+        <article class="card">
+          <h3>Physics Hub</h3>
+          <p>
+            Mechanics, energy, electricity &amp; magnetism, waves, and modern physics – structured so
+            you can recognize the question patterns early.
+          </p>
+          <div class="pill-row">
+            <span class="pill">≈30–35% of KAAC Science</span>
+            <span class="pill">Coming Online</span>
+          </div>
+          <a class="button secondary" href="physics-hub.html">Open Physics Hub</a>
+        </article>
 
-      <!-- FORMULA SHEETS PLACEHOLDER -->
-      <section class="card">
-        <div class="section-title">Formula Sheets</div>
-        <h2>High-Yield Formula Library (Placeholder)</h2>
-        <p>
-          This section will eventually contain the master formula sheets for Chemistry, Physics, Earth &amp; Space,
-          and Biology—plus printable high-yield summary sheets.
-        </p>
-      </section>
+        <article class="card">
+          <h3>Earth &amp; Space Hub</h3>
+          <p>
+            Astronomy, planetary science, geology, meteorology, and climate topics that show up
+            consistently in KAAC sets.
+          </p>
+          <div class="pill-row">
+            <span class="pill">15–18%</span>
+            <span class="pill">Patterns Over Trivia</span>
+          </div>
+          <a class="button secondary" href="earthspace-hub.html">Open Earth &amp; Space Hub</a>
+        </article>
 
-    </main>
+        <article class="card">
+          <h3>Biology Hub</h3>
+          <p>
+            Genetics, cell biology, systems, microbiology, and key vocab – enough to cover the slice
+            biology represents in the science distribution.
+          </p>
+          <div class="pill-row">
+            <span class="pill">10–12%</span>
+            <span class="pill">Targeted Essentials</span>
+          </div>
+          <a class="button secondary" href="biology-hub.html">Open Biology Hub</a>
+        </article>
+      </div>
+    </section>
 
-    <footer>
-      CarsonPrep · Custom KAAC Science Training<br/>
-      Clean reset version with no navigation or links.
-    </footer>
+    <!-- Strategy & Buzzer Training Section -->
+    <section class="section">
+      <h2>Strategy, Buzzing, and KAAC Writer Patterns</h2>
+      <p>
+        These pages help you think like a KAAC question writer and buzz like a top player. They’re built
+        from analysis of 1,500+ real questions.
+      </p>
 
-  </div>
+      <div class="card-grid">
+        <article class="card">
+          <h3>High-ROI Training Overview</h3>
+          <p>
+            Where the biggest point opportunities are and how to spend your mental energy for the maximum payoff.
+          </p>
+          <a class="button secondary" href="high-roi-training.html">Open High-ROI Training</a>
+        </article>
+
+        <article class="card">
+          <h3>Atomic &amp; Periodic Strategy Map</h3>
+          <p>
+            Visual and conceptual map of atomic structure and periodic trends – one of the most
+            heavily tested KAAC chemistry clusters.
+          </p>
+          <a class="button secondary" href="atomic-periodic-strategy-map.html">View Strategy Map</a>
+        </article>
+
+        <article class="card">
+          <h3>Buzzing Logic &amp; Decision Tree</h3>
+          <p>
+            How to decide <em>when</em> to buzz, how early is too early, and how to recover after
+            a miss without tilting.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Buzz Strategy</span>
+            <span class="pill">Confidence</span>
+          </div>
+          <a class="button secondary" href="buzzing-logic-model.html">Open Buzzing Logic</a>
+        </article>
+
+        <article class="card">
+          <h3>Buzzword &amp; Pattern Strategy</h3>
+          <p>
+            Fast-trigger words and clue fragments that almost always point to the same answer in KAAC
+            science questions.
+          </p>
+          <a class="button secondary" href="buzz-strategy.html">View Buzz Strategy</a>
+        </article>
+
+        <article class="card">
+          <h3>KAAC Archetypes &amp; Templates</h3>
+          <p>
+            The recurring question archetypes and predictable templates that KAAC writers rely on for science.
+          </p>
+          <a class="button secondary" href="four-kaac-archetypes.html">View Archetypes</a>
+        </article>
+
+        <article class="card">
+          <h3>Predictable KAAC Question Styles</h3>
+          <p>
+            Breakdowns of the most common clue structures and how to recognize them in the first few words.
+          </p>
+          <a class="button secondary" href="kaac-predictable-templates.html">Open Template Guide</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Arts & Humanities Teaser -->
+    <section class="section">
+      <h2>Arts &amp; Humanities – Visual Arts Starter Content</h2>
+      <p>
+        As the science base grows solid, you can also dip into high-yield Arts &amp; Humanities content,
+        starting with visual art movements and core terminology.
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <h3>Art Movements Overview</h3>
+          <p>
+            Big-picture view of major art movements and how they’re tested in KAAC A/H questions.
+          </p>
+          <a class="button secondary" href="ah-art-movements-overview.html">Open Art Movements</a>
+        </article>
+
+        <article class="card">
+          <h3>Core Visual Art Terms</h3>
+          <p>
+            Key vocabulary that shows up in visual art prompts and questions.
+          </p>
+          <a class="button secondary" href="ah-core-visual-art-terms.html">Open Visual Art Terms</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- For Carson Section -->
+    <section class="section">
+      <h2>Built for How Your Brain Works</h2>
+      <p>
+        This portal assumes you are smart, fast, and wired differently. It’s not trying to slow you down with
+        endless notes. It’s here to give you:
+      </p>
+      <ul>
+        <li>High-yield topics instead of random ones</li>
+        <li>Patterns and buzzwords instead of long lectures</li>
+        <li>Short, focused pages instead of massive walls of text</li>
+        <li>Tools you can revisit whenever you want, in any order</li>
+      </ul>
+      <p class="muted">
+        The goal isn’t perfection. The goal is steady progress, early recognition, and confidence when the question starts.
+      </p>
+    </section>
+  </main>
 </body>
 </html>
