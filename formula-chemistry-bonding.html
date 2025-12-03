@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chemistry — Bonding & Molecular Shapes</title>
+  <style>
+    .hyf-chip{display:inline-block;padding:0.25rem 0.7rem;border-radius:999px;background:#e0ecff;color:#1e3a8a;font-weight:600;text-decoration:none}
+    body{font-family:system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;margin:1rem;background:#f3f4f6;color:#111827}
+    .back{display:inline-block;margin-bottom:1rem;color:#0f766e;text-decoration:none;font-weight:600}
+    .card{background:#fff;padding:1rem;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,0.08)}
+    code{background:#f3f4f6;padding:0.15rem 0.3rem;border-radius:4px}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="back" href="formula-chemistry.html">← Back</a>
+    <h1>Bonding &amp; Molecular Structure</h1>
+  </header>
+
+  <div class="card">
+    <h3>Overview</h3>
+    <p><strong>Classic Lewis steps:</strong> Count valence e<sup>−</sup> → connect skeleton → satisfy octets (H = 2) → add lone pairs → add double/triple bonds if needed → check formal charge.</p>
+    <p><strong>Formal charge:</strong> <code>FC = valence − (lone e<sup>−</sup> + bonded e<sup>−</sup>/2)</code> → best structures have FC near zero with negative charges on electronegative atoms.</p>
+    <p><strong>VSEPR electron domains → shapes:</strong> 2 = linear (180°); 3 = trigonal planar (120°); 4 = tetrahedral (109.5°); 5 = trigonal bipyramidal (90°/120°); 6 = octahedral (90°).</p>
+    <p><strong>Polarity cue:</strong> Nonpolar if no lone pairs on central &amp; all terminal atoms identical; lone pairs or different atoms → usually polar (except <code>AX<sub>4</sub>E<sub>2</sub></code> square planar can be nonpolar).</p>
+    <p><strong>Hybridization shortcuts:</strong> Domains 2/3/4/5/6 correspond to <code>sp</code>/<code>sp<sup>2</sup></code>/<code>sp<sup>3</sup></code>/<code>sp<sup>3</sup>d</code>/<code>sp<sup>3</sup>d<sup>2</sup></code>.</p>
+
+    <h2>Practice Questions</h2>
+    <ol class="qa-list">
+      <li>
+        <p class="q">1. What is the electron-domain geometry for a molecule with 4 domains?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans1">Show answer</button>
+        <div id="ans1" class="answer" hidden>Tetrahedral</div>
+      </li>
+
+      <li>
+        <p class="q">2. Which formula is used to assign formal charge?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans2">Show answer</button>
+        <div id="ans2" class="answer" hidden>FC = valence − (lone e<sup>−</sup> + bonded e<sup>−</sup>/2)</div>
+      </li>
+
+      <li>
+        <p class="q">3. CO<sub>2</sub> has no lone pairs on the central atom and identical terminal atoms. Is it polar or nonpolar?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans3">Show answer</button>
+        <div id="ans3" class="answer" hidden>Nonpolar (linear with equal pulls)</div>
+      </li>
+
+      <li>
+        <p class="q">4. What is the hybridization of the central atom in NH<sub>3</sub>?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans4">Show answer</button>
+        <div id="ans4" class="answer" hidden>sp<sup>3</sup> (four domains)</div>
+      </li>
+
+      <li>
+        <p class="q">5. When drawing Lewis structures, which atoms tend to appear terminal rather than central?</p>
+        <button class="toggle-answer" aria-expanded="false" aria-controls="ans5">Show answer</button>
+        <div id="ans5" class="answer" hidden>Hydrogen and halogens (usually make one bond)</div>
+      </li>
+    </ol>
+
+    <style>
+      .qa-list { padding-left: 1rem; }
+      .q { margin: 0.35rem 0; font-weight:600; }
+      .toggle-answer { margin-top: 0.25rem; padding:0.35rem 0.5rem; border-radius:6px; border:1px solid #d1d5db; background:#fff; cursor:pointer; }
+      .answer { margin-top:0.5rem; padding:0.5rem; background:#f9fafb; border-left:3px solid #0f766e; border-radius:6px; }
+    </style>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('.toggle-answer').forEach(function(btn){
+          btn.addEventListener('click', function(){
+            var id = btn.getAttribute('aria-controls');
+            var ans = document.getElementById(id);
+            var visible = !ans.hasAttribute('hidden');
+            if(visible){ ans.setAttribute('hidden',''); btn.textContent = 'Show answer'; btn.setAttribute('aria-expanded','false'); }
+            else { ans.removeAttribute('hidden'); btn.textContent = 'Hide answer'; btn.setAttribute('aria-expanded','true'); }
+          });
+        });
+      });
+    </script>
+
+    <h3>Buzz-in-First-Three-Words</h3>
+    <ul class="buzz-list">
+      <li><strong>“Counting valence electrons…”</strong> → Lewis structure setup</li>
+      <li><strong>“Formal charge equals…”</strong> → FC formula</li>
+      <li><strong>“Two domains produce…”</strong> → Linear, sp</li>
+      <li><strong>“Central atom with lone pairs…”</strong> → Likely polar</li>
+      <li><strong>“Trigonal planar geometry…”</strong> → 3 domains, sp<sup>2</sup></li>
+    </ul>
+    <style>
+      .buzz-list { margin-top: 0.75rem; padding-left: 1rem; }
+      .buzz-list li { margin-bottom: 0.4rem; }
+    </style>
+  </div>
+</body>
+</html>
