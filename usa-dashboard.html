@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>US Point Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .dashboard-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .map-card {
+      background: var(--panel, #ffffff);
+      border: 1px solid var(--border, #dce3f0);
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+      padding: 1rem;
+    }
+
+    #us-map {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: linear-gradient(180deg, #f8fbff 0%, #f0f6ff 100%);
+      border-radius: 10px;
+    }
+
+    .state {
+      fill: #d9e8ff;
+      stroke: #8aa7d6;
+      stroke-width: 0.8;
+    }
+
+    .state:hover {
+      fill: #bfd8ff;
+    }
+
+    .point {
+      fill: #cf2436;
+      stroke: #ffffff;
+      stroke-width: 1.5;
+      opacity: 0.92;
+    }
+
+    .dashboard-help {
+      margin-top: 1rem;
+      color: #334155;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <a href="index.html" style="text-decoration:none; color:inherit;">CarsonPrep</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="usa-dashboard.html" aria-current="page">US Dashboard</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="dashboard-shell">
+    <section class="section">
+      <h1>US Point Dashboard</h1>
+      <p>
+        Base map is ready for plotting latitude/longitude points. The map currently excludes
+        <strong>AK (Alaska)</strong> and <strong>HI (Hawaii)</strong>.
+      </p>
+    </section>
+
+    <section class="map-card">
+      <svg id="us-map" viewBox="0 0 960 600" role="img" aria-label="Map of the United States"></svg>
+      <p class="dashboard-help">
+        Preloaded with <strong>98 coordinate points</strong>. You can still add more using <span class="mono">window.dashboardMap.addPoints([...])</span>.
+      </p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script>
+    const svg = d3.select('#us-map');
+    const width = 960;
+    const height = 600;
+
+    const excludedStateAbbrs = new Set(['AK', 'HI']);
+
+    const stateFipsToAbbr = {
+      '01': 'AL', '02': 'AK', '04': 'AZ', '05': 'AR', '06': 'CA', '08': 'CO', '09': 'CT', '10': 'DE', '11': 'DC',
+      '12': 'FL', '13': 'GA', '15': 'HI', '16': 'ID', '17': 'IL', '18': 'IN', '19': 'IA', '20': 'KS', '21': 'KY',
+      '22': 'LA', '23': 'ME', '24': 'MD', '25': 'MA', '26': 'MI', '27': 'MN', '28': 'MS', '29': 'MO', '30': 'MT',
+      '31': 'NE', '32': 'NV', '33': 'NH', '34': 'NJ', '35': 'NM', '36': 'NY', '37': 'NC', '38': 'ND', '39': 'OH',
+      '40': 'OK', '41': 'OR', '42': 'PA', '44': 'RI', '45': 'SC', '46': 'SD', '47': 'TN', '48': 'TX', '49': 'UT',
+      '50': 'VT', '51': 'VA', '53': 'WA', '54': 'WV', '55': 'WI', '56': 'WY'
+    };
+
+    const initialCoordinates = [
+      { latitude: 35.44808, longitude: -97.3945 },
+      { latitude: 38.79732, longitude: -90.85649 },
+      { latitude: 33.93873, longitude: -83.43305 },
+      { latitude: 43.96949, longitude: -75.90965 },
+      { latitude: 37.03317, longitude: -88.7135 },
+      { latitude: 37.33522, longitude: -89.58043 },
+      { latitude: 37.11511, longitude: -76.51625 },
+      { latitude: 33.55522, longitude: -82.16357 },
+      { latitude: 37.92869, longitude: -87.65951 },
+      { latitude: 37.11056, longitude: -94.4974 },
+      { latitude: 36.29923, longitude: -82.38302 },
+      { latitude: 37.35624, longitude: -79.2194 },
+      { latitude: 41.77197, longitude: -111.81128 },
+      { latitude: 43.0281, longitude: -89.50003 },
+      { latitude: 38.83677, longitude: -94.78455 },
+      { latitude: 39.05214, longitude: -95.89491 },
+      { latitude: 37.76898, longitude: -97.21915 },
+      { latitude: 37.6639, longitude: -97.43463 },
+      { latitude: 35.11914, longitude: -80.71116 },
+      { latitude: 38.29928, longitude: -77.48704 },
+      { latitude: 39.1743, longitude: -78.1743 },
+      { latitude: 36.05822, longitude: -80.32125 },
+      { latitude: 39.01244, longitude: -77.39586 },
+      { latitude: 36.11826, longitude: -79.89223 },
+      { latitude: 36.01124, longitude: -79.87588 },
+      { latitude: 35.87338, longitude: -84.17882 },
+      { latitude: 37.6112, longitude: -77.24697 },
+      { latitude: 37.65981, longitude: -77.53427 },
+      { latitude: 38.87564, longitude: -77.38419 },
+      { latitude: 39.18147, longitude: -77.5345 },
+      { latitude: 35.21768, longitude: -81.12503 },
+      { latitude: 38.79472, longitude: -77.53105 },
+      { latitude: 39.93121, longitude: -105.07407 },
+      { latitude: 35.67574, longitude: -81.38459 },
+      { latitude: 37.43738, longitude: -77.66394 },
+      { latitude: 38.42964, longitude: -90.3932 },
+      { latitude: 38.77455, longitude: -90.42825 },
+      { latitude: 38.65751, longitude: -90.45904 },
+      { latitude: 38.59641, longitude: -90.00528 },
+      { latitude: 38.60337, longitude: -90.55847 },
+      { latitude: 38.70583, longitude: -90.68666 },
+      { latitude: 40.72545, longitude: -73.51656 },
+      { latitude: 40.88361, longitude: -74.2059 },
+      { latitude: 41.01676, longitude: -73.67735 },
+      { latitude: 36.04113, longitude: -95.87955 },
+      { latitude: 36.02038, longitude: -95.92932 },
+      { latitude: 36.27735, longitude: -95.81998 },
+      { latitude: 36.11818, longitude: -80.07794 },
+      { latitude: 38.50195, longitude: -90.45995 },
+      { latitude: 33.49222, longitude: -84.48697 },
+      { latitude: 33.41649, longitude: -84.70749 },
+      { latitude: 33.86244, longitude: -84.77521 },
+      { latitude: 34.04355, longitude: -84.71244 },
+      { latitude: 33.83476, longitude: -84.62947 },
+      { latitude: 33.96887, longitude: -84.43273 },
+      { latitude: 34.20166, longitude: -84.09371 },
+      { latitude: 34.06341, longitude: -84.09116 },
+      { latitude: 33.86118, longitude: -84.01795 },
+      { latitude: 33.643, longitude: -83.97147 },
+      { latitude: 33.9497, longitude: -83.99389 },
+      { latitude: 35.02915, longitude: -85.153 },
+      { latitude: 36.1155, longitude: -94.04897 },
+      { latitude: 36.32214, longitude: -93.9922 },
+      { latitude: 35.66952, longitude: -97.49693 },
+      { latitude: 35.54984, longitude: -97.64074 },
+      { latitude: 35.52583, longitude: -97.76343 },
+      { latitude: 35.33574, longitude: -97.47651 },
+      { latitude: 39.54889, longitude: -76.98162 },
+      { latitude: 39.40087, longitude: -76.9726 },
+      { latitude: 34.80952, longitude: -82.33193 },
+      { latitude: 35.61528, longitude: -82.47923 },
+      { latitude: 34.31844, longitude: -83.81636 },
+      { latitude: 33.97642, longitude: -83.88252 },
+      { latitude: 30.23453, longitude: -95.49675 },
+      { latitude: 35.91314, longitude: -86.77461 },
+      { latitude: 36.16789, longitude: -86.66296 },
+      { latitude: 36.34085, longitude: -86.60845 },
+      { latitude: 42.15489, longitude: -71.2155 },
+      { latitude: 34.71417, longitude: -86.74707 },
+      { latitude: 38.78784, longitude: -77.28136 },
+      { latitude: 34.14697, longitude: -80.89316 },
+      { latitude: 36.13666, longitude: -81.16317 },
+      { latitude: 37.87307, longitude: -84.56554 },
+      { latitude: 38.48624, longitude: -77.513 },
+      { latitude: 35.49108, longitude: -80.58092 },
+      { latitude: 36.8366, longitude: -76.15105 },
+      { latitude: 36.75208, longitude: -76.21807 },
+      { latitude: 33.42371, longitude: -86.67073 },
+      { latitude: 33.61723, longitude: -86.65008 },
+      { latitude: 34.69011, longitude: -82.29073 },
+      { latitude: 39.66331, longitude: -105.10536 },
+      { latitude: 35.07393, longitude: -92.36451 },
+      { latitude: 35.90723, longitude: -78.77221 },
+      { latitude: 35.17956, longitude: -89.76046 },
+      { latitude: 35.06722, longitude: -89.65347 },
+      { latitude: 34.96376, longitude: -89.99567 },
+      { latitude: 39.84502, longitude: -74.95492 },
+      { latitude: 37.34437, longitude: -77.44998 }
+    ];
+
+    const pointsToPlot = [];
+
+    function addPoints(points) {
+      pointsToPlot.push(...points);
+      drawPoints();
+    }
+
+    function clearPoints() {
+      pointsToPlot.length = 0;
+      drawPoints();
+    }
+
+    function drawPoints() {
+      const projected = pointsToPlot
+        .map((p) => {
+          const coords = projection([p.longitude, p.latitude]);
+          if (!coords) return null;
+          return { ...p, x: coords[0], y: coords[1] };
+        })
+        .filter(Boolean);
+
+      const dots = svg.selectAll('circle.point').data(projected, (d, i) => `${d.latitude}-${d.longitude}-${i}`);
+
+      dots.enter()
+        .append('circle')
+        .attr('class', 'point')
+        .attr('r', 4)
+        .attr('cx', (d) => d.x)
+        .attr('cy', (d) => d.y)
+        .append('title')
+        .text((d) => `Lat: ${d.latitude}, Lon: ${d.longitude}`);
+
+      dots
+        .attr('cx', (d) => d.x)
+        .attr('cy', (d) => d.y)
+        .select('title')
+        .text((d) => `Lat: ${d.latitude}, Lon: ${d.longitude}`);
+
+      dots.exit().remove();
+    }
+
+    let projection;
+
+    d3.json('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json').then((us) => {
+      const allStates = topojson.feature(us, us.objects.states).features;
+
+      const filteredStates = allStates.filter((feature) => {
+        const fips = String(feature.id).padStart(2, '0');
+        const abbr = stateFipsToAbbr[fips];
+        return abbr && !excludedStateAbbrs.has(abbr);
+      });
+
+      projection = d3.geoAlbersUsa();
+      projection.fitSize([width, height], { type: 'FeatureCollection', features: filteredStates });
+
+      const path = d3.geoPath(projection);
+
+      svg.append('g')
+        .selectAll('path')
+        .data(filteredStates)
+        .join('path')
+        .attr('class', 'state')
+        .attr('d', path);
+
+      addPoints(initialCoordinates);
+    }).catch((err) => {
+      console.error('Failed to load map data:', err);
+    });
+
+    window.dashboardMap = { addPoints, clearPoints };
+  </script>
+</body>
+</html>
